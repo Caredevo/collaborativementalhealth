@@ -1,5 +1,5 @@
 # MentalHealth
-Microbackend and microfrontend of Mental Health Service
+Microservice for Mental Health
 
 
 run docker-compose up --build
