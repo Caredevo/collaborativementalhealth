@@ -1,0 +1,47 @@
+version: '3'
+services:
+  client:
+    build:
+      context: ./client
+    ports:
+      - 3010:3010
+  mh_action:
+    build:
+      context: ./mh_action
+    ports:
+      - 5010:5010
+  mh_formulation:
+    build:
+      context: ./mh_formulation
+    ports:
+      - 5020:5020
+  mh_profile:
+    build:
+      context: ./mh_profile
+    ports:
+      - 5030:5030
+  mh_provider:
+    build:
+      context: ./mh_provider
+    ports:
+      - 5040:5040
+  mh_review:
+    build:
+      context: ./mh_review
+    ports:
+      - 5050:5050
+  mh_safety:
+    build:
+      context: ./mh_safety
+    ports:
+      - 5070:5070
+  # mongoDB:
+  #   image: mongo:3.6
+  #   restart: always
+  #   environment:
+  #     - MONGO_INITDB_ROOT_USERNAME=root
+  #     - MONGO_INITDB_ROOT_PASSWORD=hello
+  #   volumes:
+  #     - ./mongodb/:/docker-entrypoint-initdb.d/:ro
+  #   ports:
+  #     - 27017:27017

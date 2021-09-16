@@ -1,0 +1,16 @@
+
+@import './theme';
+@import './buttons';
+@import './container';
+@import './widget';
+@import './navigation';
+@import './table';
+
+
+body {
+    margin: 0;
+    background-color:$background;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+
