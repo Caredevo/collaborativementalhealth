@@ -30,13 +30,13 @@ class MHProvider extends React.Component {
     //Initial Rendering
     async componentDidMount() {
         //this.props.fetchMHReviews('603cc70b091c763150cb5ffd')
-        var res = await axios.get("http://localhost:5040/mh_provider/patient/" + this.state.patientId);
+        var res = await axios.get("http://mh_provider-srv:5040/mh_provider/patient/" + this.state.patientId);
         this.setState({content: res.data});
     }
 
     async componentDidUpdate() {
         if (this.state.dataState !== "Stable") {
-            var res = await axios.get("http://localhost:5040/mh_provider/patient/" + this.state.patientId);
+            var res = await axios.get("http://mh_provider-srv:5040/mh_provider/patient/" + this.state.patientId);
             this.setState({content: res.data, dataState:'Stable'});
         }
        
@@ -138,14 +138,14 @@ class MHProvider extends React.Component {
                 console.log(form);
 
                 if (this.state.record === null) {
-                    await axios.post('http://localhost:5040/mh_provider/add', form)
+                    await axios.post('http://mh_provider-srv:5040/mh_provider/add', form)
                     .then((response) => {
                       console.log(response);
                     }, (error) => {
                       console.log(error);
                     });
                   } else {
-                    await axios.post('http://localhost:5040/mh_provider/update/' + this.state.record, form)
+                    await axios.post('http://mh_provider-srv:5040/mh_provider/update/' + this.state.record, form)
                     .then((response) => {
                       console.log(response);
                     }, (error) => {
@@ -227,7 +227,7 @@ class MHProvider extends React.Component {
     renderDeleteBox() {
 
         const handleDelete = async () => {
-            await axios.delete("http://localhost:5040/mh_provider/" + this.state.record);
+            await axios.delete("http://mh_provider-srv:5040/mh_provider/" + this.state.record);
             this.setState({showDelete:false, record:null, dataState:"New dataset"})
         }
 

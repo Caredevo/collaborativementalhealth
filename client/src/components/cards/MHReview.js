@@ -32,13 +32,13 @@ class MHReview extends React.Component {
     //Initial Rendering
     async componentDidMount() {
         //this.props.fetchMHReviews('603cc70b091c763150cb5ffd')
-        var res = await axios.get("http://localhost:5050/mh_review/patient/" + this.state.patientId);
+        var res = await axios.get("http://mh_review-srv:5050/mh_review/patient/" + this.state.patientId);
         this.setState({content: res.data});
     }
 
     async componentDidUpdate() {
         if (this.state.dataState !== "Stable") {
-            var res = await axios.get("http://localhost:5050/mh_review/patient/" + this.state.patientId);
+            var res = await axios.get("http://mh_review-srv:5050/mh_review/patient/" + this.state.patientId);
             this.setState({content: res.data, dataState:'Stable'});
         }
     }
@@ -140,14 +140,14 @@ class MHReview extends React.Component {
                 form['externalId'] = this.state.externalId;
 
                 if (this.state.record === null) {
-                    await axios.post('http://localhost:5050/mh_review/add', form)
+                    await axios.post('http://mh_review-srv:5050/mh_review/add', form)
                     .then((response) => {
                       console.log(response);
                     }, (error) => {
                       console.log(error);
                     });
                   } else {
-                    await axios.post('http://localhost:5050/mh_review/update/' + this.state.record, form)
+                    await axios.post('http://mh_review-srv:5050/mh_review/update/' + this.state.record, form)
                     .then((response) => {
                       console.log(response);
                     }, (error) => {
@@ -255,7 +255,7 @@ class MHReview extends React.Component {
     renderDeleteBox() {
 
         const handleDelete = async () => {
-            await axios.delete("http://localhost:5050/mh_review/" + this.state.record);
+            await axios.delete("http://mh_review-srv:5050/mh_review/" + this.state.record);
             this.setState({showDelete:false, record:null, dataState:"New dataset"})
         }
 

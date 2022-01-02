@@ -26,7 +26,7 @@ class MHFormulate extends Component {
     };
 
     async componentDidMount() {
-        var res = await axios.get("http://localhost:5020/mh_formulate/patient/" + this.state.patientId);
+        var res = await axios.get("http://mh_formulate-srv:5020/mh_formulate/patient/" + this.state.patientId);
         if (res.data) {
             this.setState({content: res.data});
         } 
@@ -35,7 +35,7 @@ class MHFormulate extends Component {
     async componentDidUpdate() {
       
         if (this.state.dataState !== "Stable") {
-            var res = await axios.get("http://localhost:5020/mh_formulate/patient/" + this.state.patientId);
+            var res = await axios.get("http://mh_formulate-srv:5020/mh_formulate/patient/" + this.state.patientId);
             this.setState({content: res.data, dataState:"Stable"});  
         }     
     }
@@ -71,7 +71,7 @@ class MHFormulate extends Component {
             form['practiceId'] = this.state.practiceId;
             form['externalId'] = this.state.externalId;
         
-            await axios.post('http://localhost:5020/mh_formulate/add', form)
+            await axios.post('http://mh_formulate-srv:5020/mh_formulate/add', form)
                 .then((response) => {
                   console.log(response);
                 }, (error) => {

@@ -26,7 +26,7 @@ class MHProfile extends Component {
     };
 
     async componentDidMount() {
-        var res = await axios.get("http://localhost:5030/mh_profile/patient/" + this.state.patientId);
+        var res = await axios.get("http://mh_profile-srv:5030/mh_profile/patient/" + this.state.patientId);
         if (res.data) {
             this.setState({content: res.data});
         } 
@@ -35,7 +35,7 @@ class MHProfile extends Component {
     async componentDidUpdate() {
       
         if (this.state.dataState !== "Stable") {
-            var res = await axios.get("http://localhost:5030/mh_profile/patient/" + this.state.patientId);
+            var res = await axios.get("http://mh_profile-srv:5030/mh_profile/patient/" + this.state.patientId);
             this.setState({content: res.data, dataState:"Stable"});  
         }     
     }
@@ -70,7 +70,7 @@ class MHProfile extends Component {
             form['practiceId'] = this.state.practiceId;
             form['externalId'] = this.state.externalId;
         
-            await axios.post('http://localhost:5030/mh_profile/add', form)
+            await axios.post('http://mh_profile-srv:5030/mh_profile/add', form)
                 .then((response) => {
                   console.log(response);
                 }, (error) => {

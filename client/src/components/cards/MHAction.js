@@ -30,14 +30,14 @@ class MHAction extends React.Component {
 
     async componentDidMount() {
 
-        var res = await axios.get("http://localhost:5010/mh_action/patient/" + this.state.patientId);
+        var res = await axios.get("http://mh_action-srv:5010/mh_action/patient/" + this.state.patientId);
         this.setState({content: res.data});
     }
 
     async componentDidUpdate() {
 
         if (this.state.dataState !== "Stable") {
-            var res = await axios.get("http://localhost:5010/mh_action/patient/" + this.state.patientId);
+            var res = await axios.get("http://mh_action-srv:5010/mh_action/patient/" + this.state.patientId);
             this.setState({content: res.data, dataState:'Stable'});
         }
     }
@@ -138,14 +138,14 @@ class MHAction extends React.Component {
                 form['externalId'] = this.state.externalId;
             
                 if (this.state.record === null) {
-                  await axios.post('http://localhost:5010/mh_action/add', form)
+                  await axios.post('http://mh_action-srv:5010/mh_action/add', form)
                   .then((response) => {
                     console.log(response);
                   }, (error) => {
                     console.log(error);
                   });
                 } else {
-                  await axios.post('http://localhost:5010/mh_action/update/' + this.state.record, form)
+                  await axios.post('http://mh_action-srv:5010/mh_action/update/' + this.state.record, form)
                   .then((response) => {
                     console.log(response);
                   }, (error) => {
@@ -236,7 +236,7 @@ class MHAction extends React.Component {
     renderDeleteBox() {
 
         const handleDelete = async () => {
-            await axios.delete("http://localhost:5010/mh_action/" + this.state.record);
+            await axios.delete("http://mh_action-srv:5010/mh_action/" + this.state.record);
             this.setState({showDelete:false, record:null, dataState:"New dataset"})
         }
 

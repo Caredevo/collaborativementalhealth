@@ -24,7 +24,7 @@ class MHSafety extends Component {
     };
 
     async componentDidMount() {
-        var res = await axios.get("http://localhost:5070/mh_safety/patient/" + this.state.patientId);
+        var res = await axios.get("http://mh_safety-srv:5070/mh_safety/patient/" + this.state.patientId);
         if (res.data) {
             this.setState({content: res.data});
         } 
@@ -33,7 +33,7 @@ class MHSafety extends Component {
     async componentDidUpdate() {
       
         if (this.state.dataState !== "Stable") {
-            var res = await axios.get("http://localhost:5070/mh_safety/patient/" + this.state.patientId);
+            var res = await axios.get("http://mh_safety-srv:5070/mh_safety/patient/" + this.state.patientId);
             this.setState({content: res.data, dataState:"Stable"});  
         }     
     }
@@ -70,7 +70,7 @@ class MHSafety extends Component {
             form['externalId'] = this.state.externalId;
             console.log(form);
         
-            await axios.post('http://localhost:5070/mh_safety/add', form)
+            await axios.post('http://mh_safety-srv:5070/mh_safety/add', form)
             .then((response) => {
                 console.log(response);
             }, (error) => {
