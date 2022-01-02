@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mh_review-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mh_review
+  template:
+    metadata:
+      labels:
+        app: mh_review
+    spec:
+      containers:
+        - name: mh_review
+          image: caredevotech/mentalhealth:review
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mh_review-srv
+spec:
+  selector:
+    app: mh_review
+  ports:
+    - name: mh_review
+      protocol: TCP
+      port: 5050
+      targetPort: 5050

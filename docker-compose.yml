@@ -25,11 +25,11 @@ services:
       context: ./mh_provider
     ports:
       - 5040:5040
-  mh_review:
-    build:
-      context: ./mh_review
-    ports:
-      - 5050:5050
+  # mh_review:
+  #   build:
+  #     context: ./mh_review
+  #   ports:
+  #     - 5050:5050
   mh_safety:
     build:
       context: ./mh_safety

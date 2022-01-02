@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mh_provider-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mh_provider
+  template:
+    metadata:
+      labels:
+        app: mh_provider
+    spec:
+      containers:
+        - name: mh_provider
+          image: caredevotech/mentalhealth:provider
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mh_provider-srv
+spec:
+  selector:
+    app: mh_provider
+  ports:
+    - name: mh_provider
+      protocol: TCP
+      port: 5040
+      targetPort: 5040

@@ -41,7 +41,6 @@ class MHReview extends React.Component {
             var res = await axios.get("http://localhost:5050/mh_review/patient/" + this.state.patientId);
             this.setState({content: res.data, dataState:'Stable'});
         }
-       
     }
 
     // Render content
@@ -223,11 +222,11 @@ class MHReview extends React.Component {
                                 </Field>
 
 
-                                    <div className='modalButton'>
-                                        <button type='submit' disabled={submitting || pristine} className='btnew'>Submit</button>
-                                        <button type='button' onClick={form.reset} disabled={submitting || pristine } className='btdel'>Reset</button>
-                                        <button onClick={() => this.setState({showModal: false, record: null})} className='btdel'>Cancel</button>
-                                    </div>
+                                <div className='modalButton'>
+                                    <button type='submit' disabled={submitting || pristine} className='btnew'>Submit</button>
+                                    <button type='button' onClick={form.reset} disabled={submitting || pristine } className='btdel'>Reset</button>
+                                    <button onClick={() => this.setState({showModal: false, record: null})} className='btdel'>Cancel</button>
+                                </div>
                                   
                             </form>
                         )

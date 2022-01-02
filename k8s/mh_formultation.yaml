@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mh_formulation-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mh_formulation
+  template:
+    metadata:
+      labels:
+        app: mh_formulation
+    spec:
+      containers:
+        - name: mh_formulation
+          image: caredevotech/mentalhealth:formulation
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mh_formulation-srv
+spec:
+  selector:
+    app: mh_formulation
+  ports:
+    - name: mh_formulation
+      protocol: TCP
+      port: 5020
+      targetPort: 5020

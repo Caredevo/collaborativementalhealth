@@ -1,10 +1,11 @@
-// change review, and Review to intended model
-// change the fields in section A, B and C
-
-
 
 const router = require('express').Router();
 let Review = require('./mh_review.model');
+
+require('dotenv').config();
+const jwt = require('jsonwebtoken');
+const jwtKey = process.env.SECRET;
+const jwtExpirySeconds = 300;
 
 //Review list GET and ADD
     router.route('/').get((req, res) => {
@@ -14,6 +15,37 @@ let Review = require('./mh_review.model');
     });
 
     router.route('/patient/:id').get((req, res) => {
+
+
+        
+        const token = req.cookies.token;
+        const sessionId = req.cookies['connect.sid'];
+
+        //check session
+        if(!sessionId) {
+            return res.status(401).end()
+        }
+   
+        if (!token) {
+            return res.status(401).end()
+        }
+
+        var payload, dataPayload;
+        try {
+            payload = jwt.verify(token, jwtKey);
+            dataPayload = JSON.stringify(payload.tokenPayload);
+        } catch (e) {
+            if (e instanceof jwt.JsonWebTokenError) {
+                return res.status(401).end()
+            }
+            return res.status(400).end()
+        }
+
+        console.log(dataPayload);
+
+        //check the mental healh permission here. 
+        //if no permitted -> res.json([data, permission])
+        // problem permission is empty
         Review.find({ patientId: { $eq: req.params.id } })
             .then(review => res.json(review))
             .catch(err => res.status(400).json('Error: ' + err));

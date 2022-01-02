@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mh_action-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mh_action
+  template:
+    metadata:
+      labels:
+        app: mh_action
+    spec:
+      containers:
+        - name: mh_action
+          image: caredevotech/mentalhealth:action
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mh_action-srv
+spec:
+  selector:
+    app: mh_action
+  ports:
+    - name: mh_action
+      protocol: TCP
+      port: 5010
+      targetPort: 5010
