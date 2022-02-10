@@ -8,6 +8,9 @@ import Modal from '../widgets/Modal';
 import Confirm from '../widgets/Confirm';
 import {CardLarge} from '../widgets/Cards';
 
+const PORT = "http://localhost:3131/api/mentalhealth/review";
+
+
 class MHReview extends React.Component {
 
     constructor(props) {
@@ -16,6 +19,7 @@ class MHReview extends React.Component {
                 patientId: props.identity[0],
                 permission : props.identity[1],
                 provider : props.identity[2],
+                config : props.identity[3],
                 practiceId: "Gateway",
                 externalId: 2,
                 dataState: "Stable",
@@ -32,13 +36,13 @@ class MHReview extends React.Component {
     //Initial Rendering
     async componentDidMount() {
         //this.props.fetchMHReviews('603cc70b091c763150cb5ffd')
-        var res = await axios.get("http://mh_review-srv:5050/mh_review/patient/" + this.state.patientId);
+        var res = await axios.get(`${PORT}/patient/${this.state.patientId}`, this.state.config);
         this.setState({content: res.data});
     }
 
     async componentDidUpdate() {
         if (this.state.dataState !== "Stable") {
-            var res = await axios.get("http://mh_review-srv:5050/mh_review/patient/" + this.state.patientId);
+            var res = await axios.get(`${PORT}/patient/${this.state.patientId}`, this.state.config);
             this.setState({content: res.data, dataState:'Stable'});
         }
     }
@@ -140,14 +144,14 @@ class MHReview extends React.Component {
                 form['externalId'] = this.state.externalId;
 
                 if (this.state.record === null) {
-                    await axios.post('http://mh_review-srv:5050/mh_review/add', form)
+                    await axios.post(`${PORT}/add`, form, this.state.config)
                     .then((response) => {
                       console.log(response);
                     }, (error) => {
                       console.log(error);
                     });
                   } else {
-                    await axios.post('http://mh_review-srv:5050/mh_review/update/' + this.state.record, form)
+                    await axios.post(`${PORT}update/${this.state.record}`, form, this.state.config)
                     .then((response) => {
                       console.log(response);
                     }, (error) => {
@@ -255,7 +259,7 @@ class MHReview extends React.Component {
     renderDeleteBox() {
 
         const handleDelete = async () => {
-            await axios.delete("http://mh_review-srv:5050/mh_review/" + this.state.record);
+            await axios.delete(`${PORT}/${this.state.record}`);
             this.setState({showDelete:false, record:null, dataState:"New dataset"})
         }
 

@@ -1,7 +1,3 @@
-// change provider, and Provider to intended model
-// change the fields in section A, B and C
-
-
 
 const router = require('express').Router();
 let Provider = require('./mh_provider.model');

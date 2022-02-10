@@ -6,6 +6,9 @@ import axios from 'axios';
 import { Form, Field} from 'react-final-form';
 import { CardFormSmall } from '../widgets/Cards';
 
+const PORT = "http://localhost:3131/api/mentalhealth/formulate";
+
+
 class MHFormulate extends Component {
 
     constructor(props) {
@@ -14,6 +17,7 @@ class MHFormulate extends Component {
             patientId: props.identity[0],
             permission : props.identity[1],
             provider : props.identity[2],
+            config : props.identity[3],
             practiceId: "Gateway",
             externalId: 2,
             dataState: "Stable",
@@ -26,7 +30,7 @@ class MHFormulate extends Component {
     };
 
     async componentDidMount() {
-        var res = await axios.get("http://mh_formulate-srv:5020/mh_formulate/patient/" + this.state.patientId);
+        var res = await axios.get(`${PORT}/patient/${this.state.patientId}`, this.state.config);
         if (res.data) {
             this.setState({content: res.data});
         } 
@@ -35,7 +39,7 @@ class MHFormulate extends Component {
     async componentDidUpdate() {
       
         if (this.state.dataState !== "Stable") {
-            var res = await axios.get("http://mh_formulate-srv:5020/mh_formulate/patient/" + this.state.patientId);
+            var res = await axios.get(`${PORT}/patient/${this.state.patientId}`, this.state.config);
             this.setState({content: res.data, dataState:"Stable"});  
         }     
     }
@@ -71,7 +75,7 @@ class MHFormulate extends Component {
             form['practiceId'] = this.state.practiceId;
             form['externalId'] = this.state.externalId;
         
-            await axios.post('http://mh_formulate-srv:5020/mh_formulate/add', form)
+            await axios.post(`${PORT}/add`, form, this.state.config)
                 .then((response) => {
                   console.log(response);
                 }, (error) => {

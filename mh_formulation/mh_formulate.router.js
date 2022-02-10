@@ -1,8 +1,3 @@
-// change formulation, and Formulation to intended model
-// change the fields in section A, B and C
-
-
-
 const router = require('express').Router();
 let Formulation = require('./mh_formulate.model');
 

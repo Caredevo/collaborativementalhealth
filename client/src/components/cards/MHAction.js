@@ -8,6 +8,9 @@ import Modal from '../widgets/Modal';
 import Confirm from '../widgets/Confirm';
 import {CardMedium} from '../widgets/Cards';
 
+const PORT = "http://localhost:3131/api/mentalhealth/action";
+
+
 class MHAction extends React.Component {
 
     constructor(props) {
@@ -16,6 +19,7 @@ class MHAction extends React.Component {
             patientId: props.identity[0],
             permission : props.identity[1],
             provider : props.identity[2],
+            config : props.identity[3],
             practiceId: "Gateway",
             externalId: 2,
             dataState: "Stable",
@@ -29,15 +33,14 @@ class MHAction extends React.Component {
     };
 
     async componentDidMount() {
-
-        var res = await axios.get("http://mh_action-srv:5010/mh_action/patient/" + this.state.patientId);
+        var res = await axios.get(`${PORT}/patient/${this.state.patientId}`, this.state.config);
         this.setState({content: res.data});
     }
 
     async componentDidUpdate() {
 
         if (this.state.dataState !== "Stable") {
-            var res = await axios.get("http://mh_action-srv:5010/mh_action/patient/" + this.state.patientId);
+            var res = await axios.get(`${PORT}/patient/${this.state.patientId}`, this.state.config);
             this.setState({content: res.data, dataState:'Stable'});
         }
     }
@@ -138,14 +141,14 @@ class MHAction extends React.Component {
                 form['externalId'] = this.state.externalId;
             
                 if (this.state.record === null) {
-                  await axios.post('http://mh_action-srv:5010/mh_action/add', form)
-                  .then((response) => {
-                    console.log(response);
-                  }, (error) => {
-                    console.log(error);
-                  });
+                await axios.post(`${PORT}/add`, form, this.state.config)
+                .then((response) => {
+                console.log(response);
+                }, (error) => {
+                console.log(error);
+                });
                 } else {
-                  await axios.post('http://mh_action-srv:5010/mh_action/update/' + this.state.record, form)
+                await axios.post(`${PORT}update/${this.state.record}`, form, this.state.config)
                   .then((response) => {
                     console.log(response);
                   }, (error) => {
@@ -236,7 +239,7 @@ class MHAction extends React.Component {
     renderDeleteBox() {
 
         const handleDelete = async () => {
-            await axios.delete("http://mh_action-srv:5010/mh_action/" + this.state.record);
+            await axios.delete(`${PORT}/${this.state.record}`);
             this.setState({showDelete:false, record:null, dataState:"New dataset"})
         }
 

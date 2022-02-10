@@ -5,6 +5,9 @@ import axios from 'axios';
 import { Form, Field} from 'react-final-form';
 import { CardForm } from '../widgets/Cards';
 
+const PORT = "http://localhost:3131/api/mentalhealth/safety";
+
+
 class MHSafety extends Component {
 
     constructor(props) {
@@ -13,6 +16,7 @@ class MHSafety extends Component {
             patientId: props.identity[0],
             permission : props.identity[1],
             provider : props.identity[2],
+            config : props.identity[3],
             practiceId: "Gateway",
             externalId: 2,
             dataState: "Stable",
@@ -24,7 +28,7 @@ class MHSafety extends Component {
     };
 
     async componentDidMount() {
-        var res = await axios.get("http://mh_safety-srv:5070/mh_safety/patient/" + this.state.patientId);
+        var res = await axios.get(`${PORT}/patient/${this.state.patientId}`, this.state.config);
         if (res.data) {
             this.setState({content: res.data});
         } 
@@ -33,7 +37,7 @@ class MHSafety extends Component {
     async componentDidUpdate() {
       
         if (this.state.dataState !== "Stable") {
-            var res = await axios.get("http://mh_safety-srv:5070/mh_safety/patient/" + this.state.patientId);
+            var res = await axios.get(`${PORT}/patient/${this.state.patientId}`, this.state.config);
             this.setState({content: res.data, dataState:"Stable"});  
         }     
     }
@@ -68,9 +72,8 @@ class MHSafety extends Component {
             form['provider'] = this.state.provider;  
             form['practiceId'] = this.state.practiceId;
             form['externalId'] = this.state.externalId;
-            console.log(form);
         
-            await axios.post('http://mh_safety-srv:5070/mh_safety/add', form)
+            await axios.post(`${PORT}/add`, form, this.state.config)
             .then((response) => {
                 console.log(response);
             }, (error) => {

@@ -1,8 +1,3 @@
-// change action, and Action to intended model
-// change the fields in section A, B and C
-
-
-
 const router = require('express').Router();
 let Action = require('./mh_action.model');
 

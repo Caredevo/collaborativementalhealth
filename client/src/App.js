@@ -1,5 +1,7 @@
 
 import React, { Suspense, lazy } from 'react';
+import { clientDecryption } from './Security';
+
 
 const MHAction = lazy(() => import('./components/cards/MHAction'));
 const MHFormulate = lazy(() => import('./components/cards/MHFormulate'));
@@ -10,7 +12,22 @@ const MHSafety = lazy(() => import('./components/cards/MHSafety'));
 
 export default function App(props) {
 
-  var identity = props.identity;
+  //receiving and decrypting data from parent client
+  var parentData = clientDecryption(props.identity[0].data);
+  var parentToken = clientDecryption(props.identity[1].data);
+  var ptid = parentData.ptid._id;
+  var permit = parentData.permit;
+  var userId = parentData.userId;
+  var token = parentToken.token;
+  var config = {
+    headers:{
+    Authorization: token,
+        }
+    };
+
+  var identity = [ptid, permit, userId, config];
+  ///
+
   if (!identity) {
     identity = [null, null, null]
   }
@@ -26,7 +43,6 @@ export default function App(props) {
               <MHProfile identity={identity}/>
               
           </div>
-    </Suspense>
-      
+    </Suspense>  
   )
 }
