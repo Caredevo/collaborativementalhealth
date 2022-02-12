@@ -29,7 +29,7 @@ export default function App(props) {
   ///
 
   if (!identity) {
-    identity = [null, null, null]
+    identity = [null, null, null, null]
   }
 
   return (
