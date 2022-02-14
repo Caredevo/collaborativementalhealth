@@ -35,13 +35,7 @@ services:
       context: ./mh_safety
     ports:
       - 5070:5070
-  # mongoDB:
-  #   image: mongo:3.6
-  #   restart: always
-  #   environment:
-  #     - MONGO_INITDB_ROOT_USERNAME=root
-  #     - MONGO_INITDB_ROOT_PASSWORD=hello
-  #   volumes:
-  #     - ./mongodb/:/docker-entrypoint-initdb.d/:ro
-  #   ports:
-  #     - 27017:27017
+networks:
+  default:
+    external: true
+    name: backend
