@@ -20,7 +20,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mh_review-srv
+  name: mh_review
 spec:
   selector:
     app: mh_review

@@ -20,7 +20,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mh_profile-srv
+  name: mh_profile
 spec:
   selector:
     app: mh_profile

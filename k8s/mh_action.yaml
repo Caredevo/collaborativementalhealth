@@ -20,7 +20,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mh_action-srv
+  name: mh_action
 spec:
   selector:
     app: mh_action

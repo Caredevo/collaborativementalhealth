@@ -20,7 +20,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mh_safety-srv
+  name: mh_safety
 spec:
   selector:
     app: mh_safety
