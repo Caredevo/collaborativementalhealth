@@ -2,6 +2,7 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const port = process.env.PORT || 3010;
 
@@ -18,7 +19,7 @@ module.exports = {
     rules: [
         {
             test: /\.css$/i,
-            use: ["style-loader", "css-loader"],
+            use: [MiniCssExtractPlugin.loader, "style-loader", "css-loader"],
           },
         {
             test: /\.(js|jsx)$/,
@@ -44,5 +45,6 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: "./public/index.html",
     }),
+    new MiniCssExtractPlugin(),
   ],
 };
