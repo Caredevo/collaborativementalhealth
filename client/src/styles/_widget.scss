@@ -1,83 +1,102 @@
 
-* {
-  box-sizing: border-box;
-}
-
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
-
-input[type=password] {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
 
 label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-  font-size: 16px;
-}
-
-input[type=submit] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: right;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-
-.col-25 {
-  float: left;
-  width: 25%;
-  margin-top: 6px;
-}
-
-.col-75 {
-  float: left;
-  width: 75%;
-  margin-top: 6px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .col-25, .col-75, input[type=submit] {
-    width: 100%;
-    margin-top: 0;
+    display: block;
+    padding: 3px;
+    color: #2c2c2c;
+    font-weight:bold;
+    font-size: 14px;
+    letter-spacing : 1.2px;
+    z-index : 2;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+ 
+input {
+  display: block;
+  position: relative;
+  width: 94%;
+  padding : 5px;  
+  color: #494949;
+  background: none;
+  border : none;
+  z-index: 2;
+  font-size: 12px;
+  &:focus {
+      border-bottom-style: solid;
+      background-color : rgb(255, 255, 255);
+      border-width : 0.8px;
+      width:94%;
+      outline : none;
+      border-color : rgb(146, 184, 197);
   }
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+select {
+    display: block;
+    position: relative;
+    width: 80%;
+    padding : 3px;  
+    color: #494949;
+    background: none;
+    border : none;
+    z-index: 2;
+    padding: 5px;
+    font-size: 10px;  
+    &:focus {
+      border-bottom-style: solid;
+      background-color : rgb(255, 255, 255);
+      border-width : 0.8px;
+      outline : none;
+      border-color : rgb(146, 184, 197);
+  } 
+}
+
+::placeholder {
+  color: #88dba8;
+  font-style: italic;
+}
+
+
+textarea {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: block;
+  position: relative;
+  width: 98%;
+  color: #494949;
+  background: none;
+  border : none;
+  line-height : 1.5;
+  z-index: 2;
+  padding: 5px;
+  resize: none;
+  font-size: 12px;
+  &:focus {
+      border-bottom-style: solid;
+      background-color : rgb(255, 255, 255);
+      border-width : 0.8px;
+      padding: 3px;
+      width: 98%;
+      outline : none;
+      border-color : rgb(146, 184, 197);
+  }
+  
+}
 
 .err {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size : 14px;
+  font-size : 10px;
   color : red;
 }
 

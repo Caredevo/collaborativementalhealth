@@ -10,16 +10,17 @@ module.exports = {
   entry: ["@babel/polyfill", "/src/index.js"],
   output: { path: path.resolve(__dirname, "dist"), uniqueName:'mentalhealth_bundle' },
   devServer: {
-    // host: 'localhost',
-    host: '0.0.0.0',
-    port: 3010
+    host: 'localhost',
+    // host: '0.0.0.0',
+    // port: 3010
+    port : 3000
   },
   mode: 'development',
   module: {
     rules: [
         {
             test: /\.css$/i,
-            use: [MiniCssExtractPlugin.loader, "style-loader", "css-loader"],
+            use: [MiniCssExtractPlugin.loader, "css-loader"],
           },
         {
             test: /\.(js|jsx)$/,
@@ -30,6 +31,10 @@ module.exports = {
                 presets: ["@babel/preset-env", "@babel/preset-react"],
             },
         },
+      },
+      {
+        test: /\.key$/i,
+        use: 'raw-loader',
       },
     ],
   },

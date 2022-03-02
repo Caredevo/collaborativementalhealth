@@ -5,8 +5,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Form, Field} from 'react-final-form';
 import { CardFormSmall } from '../widgets/Cards';
+import {encryption, decryption, randomKey} from '../../Security';
+var cipherKey = randomKey();
 
-const PORT = "http://localhost:3131/api/mentalhealth/formulate";
+
+// const PORT = "http://localhost:3131/api/mentalhealth/formulate";
+const PORT = "http://localhost:5020/mh_formulate"
 
 
 class MHFormulate extends Component {
@@ -17,9 +21,9 @@ class MHFormulate extends Component {
             patientId: props.identity[0],
             permission : props.identity[1],
             provider : props.identity[2],
-            config : props.identity[3],
-            practiceId: "Gateway",
-            externalId: 2,
+            practiceId: props.identity[3],
+            externalId: props.identity[4], 
+            config : props.identity[5],
             dataState: "Stable",
             current_entry : null,
             content: [],
@@ -30,19 +34,31 @@ class MHFormulate extends Component {
     };
 
     async componentDidMount() {
-        var res = await axios.get(`${PORT}/patient/${this.state.patientId}`, this.state.config);
+        var params = {
+            id : this.state.patientId,
+            key : cipherKey
+        }; 
+        var res = await axios.get(`${PORT}/patient`, { params }, this.state.config);
         if (res.data) {
-            this.setState({content: res.data});
+            var decryptedRespond = decryption(res.data, cipherKey);
+            this.setState({content: decryptedRespond}); 
         } 
     }
 
-    async componentDidUpdate() {
-      
+    async componentDidUpdate(prevProps) {
         if (this.state.dataState !== "Stable") {
-            var res = await axios.get(`${PORT}/patient/${this.state.patientId}`, this.state.config);
-            this.setState({content: res.data, dataState:"Stable"});  
-        }     
+            var params = {
+                id : this.state.patientId,
+                key : cipherKey
+            }; 
+            var res = await axios.get(`${PORT}/patient`, { params }, this.state.config);
+            if (res.data) {
+                var decryptedRespond = decryption(res.data, cipherKey);
+                this.setState({content: decryptedRespond, dataState:"Stable"}); 
+            } 
+        }   
     }
+
 
     formButton() {
         var permit = this.state.permission;
@@ -56,16 +72,16 @@ class MHFormulate extends Component {
     MHFormulateForm() { 
         var all_contents = this.state.content;
         var content;
-        if (all_contents === undefined || all_contents.length === 0) {
+        if(all_contents) {
+            content = all_contents[0];
+            if(content) {
+                content.date = content.date.slice(0,10);
+            }
+        } else {
             var d = new Date();
             var date = d.toISOString().slice(0,10);
             content = [];
             content.date = date;
-        } else {
-            var last_entry = all_contents[(all_contents.length)-1];
-            content = last_entry;
-            content.date = content.date.slice(0,10);
-
         }
 
         const handleSubmit = async (formValues) => {
@@ -74,8 +90,10 @@ class MHFormulate extends Component {
             form['provider'] = this.state.provider;  
             form['practiceId'] = this.state.practiceId;
             form['externalId'] = this.state.externalId;
-        
-            await axios.post(`${PORT}/add`, form, this.state.config)
+
+            const encryptedData = encryption(form, cipherKey);
+
+            await axios.post(`${PORT}/add`, encryptedData, this.state.config)
                 .then((response) => {
                   console.log(response);
                 }, (error) => {
@@ -107,7 +125,7 @@ class MHFormulate extends Component {
                                             </div>
                                     )} 
                                 </Field>
-                                <p></p>
+                                <br></br>
                                 <Field name='predisposing' component='input' placeholder='eg. childhood abuse, substnace misuse'>
                                     {({input, meta, placeholder}) => (
                                         <div className={meta.active ? 'active':''}>
@@ -117,6 +135,7 @@ class MHFormulate extends Component {
                                         </div>
                                     )} 
                                 </Field>
+                                <br></br>
                                 <Field name='precipitating' component='input' placeholder='eg. recent marriage breakdown, job loss, etc. '>
                                     {({input, meta, placeholder}) => (
                                         <div className={meta.active ? 'active':''}>
@@ -142,6 +161,7 @@ class MHFormulate extends Component {
                                         </div>
                                     )} 
                                 </Field>
+                                <br></br>
                                 <Field name='protective' component='input' placeholder='eg. children, supportive parents, etc. '>
                                     {({input, meta, placeholder}) => (
                                         <div className={meta.active ? 'active':''}>

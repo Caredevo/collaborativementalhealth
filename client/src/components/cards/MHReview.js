@@ -7,8 +7,13 @@ import { Form, Field} from 'react-final-form';
 import Modal from '../widgets/Modal';
 import Confirm from '../widgets/Confirm';
 import {CardLarge} from '../widgets/Cards';
+import {encryption, decryption, randomKey} from '../../Security';
+var cipherKey = randomKey();
 
-const PORT = "http://localhost:3131/api/mentalhealth/review";
+
+
+// const PORT = "http://localhost:3131/api/mentalhealth/review";
+const PORT = "http://localhost:5050/mh_review"
 
 
 class MHReview extends React.Component {
@@ -19,9 +24,9 @@ class MHReview extends React.Component {
                 patientId: props.identity[0],
                 permission : props.identity[1],
                 provider : props.identity[2],
-                config : props.identity[3],
-                practiceId: "Gateway",
-                externalId: 2,
+                practiceId: props.identity[3],
+                externalId: props.identity[4], 
+                config : props.identity[5],
                 dataState: "Stable",
                 showModal: false,
                 showDelete : false,
@@ -33,19 +38,32 @@ class MHReview extends React.Component {
         };
 
 
-    //Initial Rendering
     async componentDidMount() {
-        //this.props.fetchMHReviews('603cc70b091c763150cb5ffd')
-        var res = await axios.get(`${PORT}/patient/${this.state.patientId}`, this.state.config);
-        this.setState({content: res.data});
+        var params = {
+            id : this.state.patientId,
+            key : cipherKey
+        }; 
+        var res = await axios.get(`${PORT}/patient`, { params }, this.state.config);
+        if (res.data) {
+            var decryptedRespond = decryption(res.data, cipherKey);
+            this.setState({content: decryptedRespond}); 
+        } 
     }
 
-    async componentDidUpdate() {
+    async componentDidUpdate(prevProps) {
         if (this.state.dataState !== "Stable") {
-            var res = await axios.get(`${PORT}/patient/${this.state.patientId}`, this.state.config);
-            this.setState({content: res.data, dataState:'Stable'});
-        }
+            var params = {
+                id : this.state.patientId,
+                key : cipherKey
+            }; 
+            var res = await axios.get(`${PORT}/patient`, { params }, this.state.config);
+            if (res.data) {
+                var decryptedRespond = decryption(res.data, cipherKey);
+                this.setState({content: decryptedRespond, dataState:"Stable"}); 
+            } 
+        }   
     }
+
 
     // Render content
     renderMHReviewList() {
@@ -144,20 +162,22 @@ class MHReview extends React.Component {
                 form['externalId'] = this.state.externalId;
 
                 if (this.state.record === null) {
-                    await axios.post(`${PORT}/add`, form, this.state.config)
+                    var encryptedData = encryption(form, cipherKey);
+                    await axios.post(`${PORT}/add`, encryptedData, this.state.config)
                     .then((response) => {
                       console.log(response);
                     }, (error) => {
                       console.log(error);
                     });
-                  } else {
-                    await axios.post(`${PORT}update/${this.state.record}`, form, this.state.config)
+                } else {
+                    encryptedData = encryption(form, cipherKey);
+                    await axios.post(`${PORT}/update`, encryptedData, this.state.config)
                     .then((response) => {
                       console.log(response);
                     }, (error) => {
                       console.log(error);
                     });
-                  }
+                }
 
                 this.setState({showModal :false, newForm : true,record : null, rowData: [], dataState:"New dataset"});
            }
@@ -259,7 +279,11 @@ class MHReview extends React.Component {
     renderDeleteBox() {
 
         const handleDelete = async () => {
-            await axios.delete(`${PORT}/${this.state.record}`);
+            var params = {
+                id : this.state.record,
+                key : cipherKey
+            }; 
+            await axios.delete(`${PORT}`, { params }, this.state.config);
             this.setState({showDelete:false, record:null, dataState:"New dataset"})
         }
 

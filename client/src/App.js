@@ -12,24 +12,27 @@ const MHSafety = lazy(() => import('./components/cards/MHSafety'));
 
 export default function App(props) {
 
-  //receiving and decrypting data from parent client
-  var parentData = clientDecryption(props.identity[0].data);
-  var parentToken = clientDecryption(props.identity[1].data);
-  var ptid = parentData.ptid._id;
-  var permit = parentData.permit;
-  var userId = parentData.userId;
-  var token = parentToken.token;
-  var config = {
-    headers:{
-    Authorization: token,
-        }
-    };
-
-  var identity = [ptid, permit, userId, config];
+  if (props.identity) {
+    //receiving and decrypting data from parent client
+    var parentData = clientDecryption(props.identity[0].data);
+    var parentToken = clientDecryption(props.identity[1].data);
+    var ptid = parentData.ptid._id;
+    var permit = parentData.permit;
+    var userId = parentData.userId;
+    var token = parentToken.token;
+    var config = {
+      headers:{
+      Authorization: token,
+          }
+      };
+  
+    var identity = [ptid, permit, userId, practiceId, externalId, config];
+   
+  }
   ///
-
   if (!identity) {
-    identity = [null, null, null, null]
+    identity = ["603cc70b091c763150cb5ffd","Read and write","60f17d4884c39a14e87f50f2","124", "2", ""]
+    // identity = [null, null, null, null, null, null]
   }
 
   return (

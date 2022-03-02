@@ -83,7 +83,7 @@
   -webkit-box-shadow: 2px 3px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
           box-shadow: 2px 3px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
-  background-color: #a0982f;
+  background-color: #7b7702;
   cursor: pointer;
   margin: 3px;
   width: 70px;
@@ -985,7 +985,6 @@
   -ms-flex-line-pack: distribute;
       align-content: space-around;
   margin: 30px 10px 10px 10px;
-  height: 412px;
 }
 
 .form-2-rows {
@@ -1000,22 +999,27 @@
       grid-template-rows: repeat(2, 300px);
 }
 
-.form-2-columns {
+.form-1-columns {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
   margin: 10px 10px 10px 10px;
   height: 412px;
-  grid-template-columns: repeat(2, 1fr);
+}
+
+.form-2-columns {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 10px;
+  margin: 10px 10px 10px 10px;
+  height: 412px;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
 }
 
 .form-3-columns {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
   margin: 10px 10px 10px 10px;
   height: 412px;
@@ -1026,8 +1030,6 @@
 .form-4-columns {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
   margin: 10px 10px 10px 10px;
   height: 412px;
@@ -1047,8 +1049,8 @@
 .insidecard {
   text-align: left;
   width: auto;
-  padding: 0px;
   overflow-y: auto;
+  margin: 3px;
 }
 
 /* The actual timeline (the vertical ruler) */
@@ -1123,7 +1125,7 @@ label {
   padding: 3px;
   color: #2c2c2c;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 1.2px;
   z-index: 2;
   font-family: Arial, Helvetica, sans-serif;
@@ -1134,11 +1136,11 @@ input {
   position: relative;
   width: 94%;
   padding: 5px;
-  color: #949494;
+  color: #494949;
   background: none;
   border: none;
   z-index: 2;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 input:focus {
@@ -1167,12 +1169,12 @@ select {
   position: relative;
   width: 80%;
   padding: 3px;
-  color: #949494;
+  color: #494949;
   background: none;
   border: none;
   z-index: 2;
   padding: 5px;
-  font-size: 14px;
+  font-size: 10px;
 }
 
 select:focus {
@@ -1183,26 +1185,49 @@ select:focus {
   border-color: #92b8c5;
 }
 
+::-webkit-input-placeholder {
+  color: #88dba8;
+  font-style: italic;
+}
+
+:-ms-input-placeholder {
+  color: #88dba8;
+  font-style: italic;
+}
+
+::-ms-input-placeholder {
+  color: #88dba8;
+  font-style: italic;
+}
+
+::placeholder {
+  color: #88dba8;
+  font-style: italic;
+}
+
 textarea {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: block;
   position: relative;
   width: 98%;
-  color: #444444;
+  color: #494949;
   background: none;
   border: none;
   line-height: 1.5;
   z-index: 2;
-  padding: 6px;
+  padding: 5px;
   resize: none;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 textarea:focus {
+  border-bottom-style: solid;
   background-color: white;
   border-width: 0.8px;
+  padding: 3px;
   width: 98%;
   outline: none;
+  border-color: #92b8c5;
 }
 
 .err {
@@ -1397,8 +1422,8 @@ table {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
-  font-size: 14px;
-  vertical-align: top;
+  font-size: 11px;
+  vertical-align: center;
   z-index: 1;
   overflow-y: scroll;
 }
@@ -1406,7 +1431,7 @@ table {
 table td, table th {
   padding: 10px;
   text-align: left;
-  vertical-align: top;
+  vertical-align: center;
   z-index: 1;
 }
 
@@ -1438,8 +1463,8 @@ table th {
   font-size: 12px;
   border-collapse: collapse;
   width: 100%;
-  font-size: 10px;
-  vertical-align: top;
+  font-size: 11px;
+  vertical-align: center;
   z-index: 1;
   overflow-y: scroll;
 }
@@ -1447,7 +1472,7 @@ table th {
 .lmtable td, .lmtable th {
   padding: 10px;
   text-align: left;
-  vertical-align: top;
+  vertical-align: center;
   z-index: 1;
 }
 
@@ -1479,7 +1504,7 @@ table th {
   color: black;
   width: 100%;
   font-size: 12px;
-  vertical-align: top;
+  vertical-align: center;
   z-index: 1;
   overflow-y: scroll;
 }
@@ -1487,7 +1512,7 @@ table th {
 .tablelist td, .tablelist th {
   padding: 5px;
   text-align: left;
-  vertical-align: top;
+  vertical-align: center;
   z-index: 1;
 }
 

@@ -120,7 +120,7 @@
 .header {
     position : relative;
     background-color : $primarycolor;
-    height : 60px;
+    height : 18px;
     padding : 10px;
     color : white;
     width : 200px;
@@ -236,7 +236,6 @@
     margin : 15px;
 }
 
-
 .form-container {
     display: flex;
     flex-direction : row;
@@ -244,7 +243,6 @@
     justify-content : flex-start;
     align-content : space-around;
     margin : 30px 10px 10px 10px;
-    height:412px;
 }
 
 @mixin formrows() {
@@ -264,10 +262,13 @@
 
 @mixin formcolumns() {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     grid-gap : 10px;
     margin : 10px 10px 10px 10px;
     height:412px;
+}
+
+.form-1-columns {
+    @include formcolumns();
 }
 
 .form-2-columns {
@@ -297,8 +298,8 @@
 .insidecard {
     text-align: left;
     width : auto;
-    padding: 0px;
     overflow-y : auto;
+    margin : 3px;
 }
 
 /* The actual timeline (the vertical ruler) */
