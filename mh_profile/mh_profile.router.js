@@ -1,43 +1,52 @@
 const router = require('express').Router();
 let Profile = require('./mh_profile.model');
+let security = require('./security');
 
-//Profile list GET and ADD
-    router.route('/').get((req, res) => {
+router.route('/').get((req, res) => {
+    // const cipherKey = req.query.key;
     Profile.find()
-        .then(profile => res.json(profile))
-        .catch(err => res.status(400).json('Error: ' + err));
-    });
+    .then(data => {
+        // var encryptedRespond = security.encryption(data, cipherKey);
+        // res.json(encryptedRespond)
+        res.json(data);
+    })
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 
-    router.route('/patient/:id').get((req, res) => {
-        Profile.find({ patientId: { $eq: req.params.id } })
-            .then(profile => res.json(profile))
-            .catch(err => res.status(400).json('Error: ' + err));
-        });
+router.route('/patient').get((req, res) => {
+    const cipherKey = req.query.key;
+    Profile.find({ patientId: { $eq: req.query.id } }).sort({date:'descending'})
+    .then(data => {
+        var encryptedRespond = security.encryption(data, cipherKey);
+        res.json(encryptedRespond)
+    })
+    .catch(err => res.status(400).json('Error: ' + err));
     
-// SECTION A
-    router.route('/add').post((req, res) => {
-    const patientId = req.body.patientId;
-    const date = req.body.date;
-    const mentalhx = req.body.mentalhx;
-    const personality = req.body.personality;
-    const familyhx = req.body.familyhx;
-    const socialhx = req.body.socialhx;
-    const develophx = req.body.develophx;
-    const domestic = req.body.domestic;
-    const substance = req.body.substance;
-    const treatmenthx = req.body.treatmenthx;
-    const housing = req.body.housing;
-    const finance = req.body.finance;
-    const employment = req.body.employment;
-    const practiceID = req.body.practiceID;
-    const externalID = req.body.externalID;
-    const provider = req.body.provider;
+});
+    
+router.route('/add').post((req, res) => {
 
+    var form = req.body;
+    const payload = security.decryption(form);
+    
+    const patientId = payload.data.patientId;
+    const mentalhx = payload.data.mentalhx;
+    const personality = payload.data.personality;
+    const familyhx = payload.data.familyhx;
+    const socialhx = payload.data.socialhx;
+    const develophx = payload.data.develophx;
+    const domestic = payload.data.domestic;
+    const substance = payload.data.substance;
+    const treatmenthx = payload.data.treatmenthx;
+    const housing = payload.data.housing;
+    const finance = payload.data.finance;
+    const employment = payload.data.employment;
+    const practiceID = payload.data.practiceID;
+    const externalID = payload.data.externalID;
+    const provider = payload.data.provider;
 
-// SECTION B
     const newProfile = new Profile({
         patientId,
-        date,
         mentalhx,
         personality,
         familyhx,
@@ -59,54 +68,55 @@ let Profile = require('./mh_profile.model');
     newProfile.save()
     .then(() => res.json('Profile added!'))
     .catch(err => res.status(400).json('Error: ' + err));
-    });
+});
 
-//GET, DELETE and UPDATE specific patient
-    router.route('/:id').get((req, res) => {
-        Profile.findById(req.params.id)
-        .then(profile => res.json(profile))
-        .catch(err => res.status(400).json('Error: ' + err));
-    });
 
-    router.route('/all').delete((req, res) => {
-        Profile.deleteMany(req.params.id)
-        .then(() => res.json("All Profile Deleted"))
-        .catch(err => res.status(400).json('Error: ' + err));
-    });
+router.route('/:id').get((req, res) => {
+    Profile.findById(req.params.id)
+    .then(profile => res.json(profile))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 
-    router.route('/:id').delete((req, res) => {
-        Profile.findByIdAndDelete(req.params.id)
-            .then(() => res.json('Profile deleted.'))
+router.route('/all').delete((req, res) => {
+    Profile.deleteMany(req.params.id)
+    .then(() => res.json("All Profile Deleted"))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/').delete((req, res) => {
+    Profile.findByIdAndDelete(req.query.id)
+    .then(() => res.json('Substance deleted.'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/update').post((req, res) => {
+    var form = req.body;
+    const payload = security.decryption(form);
+
+    Profile.findById(payload.data._id)
+        .then(profile => {
+            profile.patientId = payload.data.patientId;
+            profile.date = payload.data.date;
+            profile.mentalhx = payload.data.mentalhx;
+            profile.personality = payload.data.personality;
+            profile.familyhx = payload.data.familyhx;
+            profile.socialhx = payload.data.socialhx;
+            profile.develophx = payload.data.develophx;
+            profile.domestic = payload.data.domestic;
+            profile.substance = payload.data.substance;
+            profile.treatmenthx = payload.data.treatmenthx;
+            profile.housing = payload.data.housing;
+            profile.finance = payload.data.finance;
+            profile.employment = payload.data.employment;
+            profile.meta[0].practiceID = payload.data.practiceID;
+            profile.meta[0].externalID = payload.data.externalID;
+            profile.meta[0].provider = payload.data.provider;
+
+        profile.save()
+            .then(() => res.json('Profile updated!'))
             .catch(err => res.status(400).json('Error: ' + err));
-        });
-
-    router.route('/update/:id').post((req, res) => {
-        Profile.findById(req.params.id)
-            .then(profile => {
-
-// SECTION C
-                profile.patientId = req.body.patientId;
-                profile.date = req.body.date;
-                profile.mentalhx = req.body.mentalhx;
-                profile.personality = req.body.personality;
-                profile.familyhx = req.body.familyhx;
-                profile.socialhx = req.body.socialhx;
-                profile.develophx = req.body.develophx;
-                profile.domestic = req.body.domestic;
-                profile.substance = req.body.substance;
-                profile.treatmenthx = req.body.treatmenthx;
-                profile.housing = req.body.housing;
-                profile.finance = req.body.finance;
-                profile.employment = req.body.employment;
-                profile.meta[0].practiceID = req.body.practiceID;
-                profile.meta[0].externalID = req.body.externalID;
-                profile.meta[0].provider = req.body.provider;
-
-            profile.save()
-                .then(() => res.json('Profile updated!'))
-                .catch(err => res.status(400).json('Error: ' + err));
-            })
-            .catch(err => res.status(400).json('Error: ' + err));
-        });
+        })
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 
 module.exports = router;
