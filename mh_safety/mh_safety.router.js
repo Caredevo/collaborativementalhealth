@@ -4,6 +4,10 @@ let Safety = require('./mh_safety.model');
 let security = require('./security');
 
 //Safety list GET and ADD
+router.route('/test').get((req, res) => {
+    res.json("Testing for MH_Safety running");
+});
+
 router.route('/').get((req, res) => {
     // const cipherKey = req.query.key;
     Safety.find()

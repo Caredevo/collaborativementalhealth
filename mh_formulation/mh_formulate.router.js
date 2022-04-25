@@ -9,7 +9,7 @@ router.route('/').get((req, res) => {
     .then(data => {
         // var encryptedRespond = security.encryption(data, cipherKey);
         // res.json(encryptedRespond)
-        res.json(data;)
+        res.json(data);
     })
     .catch(err => res.status(400).json('Error: ' + err));
 });

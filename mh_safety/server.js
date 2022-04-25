@@ -23,6 +23,7 @@ const port = process.env.PORT || 5070;
     
     const mh_safetyRouter = require('./mh_safety.router');
 
+    // app.use('/mh_safety', mh_safetyRouter);
     app.use('/mh_safety', mh_safetyRouter);
 
 //set up port to listen
