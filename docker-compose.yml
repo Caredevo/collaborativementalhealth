@@ -42,6 +42,12 @@ services:
     ports:
       - 5070:5070
     image: mentalhealth:safety
+  webapp:
+    build:
+      context: ./webapp
+    ports:
+      - 4000:4000
+    image: mentalhealth:webapp
 networks:
   default:
     external: true
