@@ -8,7 +8,7 @@ const port = process.env.PORT || 3010;
 
 module.exports = {
   entry: ["@babel/polyfill", "/src/index.js"],
-  output: { path: path.resolve(__dirname, "dist"), uniqueName:'mentalhealth_bundle' },
+  output: { path: path.resolve(__dirname, "dist"), uniqueName:'mentalhealth_bundle', clean: true },
   devServer: {
     host: 'localhost',
     // host: '0.0.0.0',
