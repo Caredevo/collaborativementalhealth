@@ -10,7 +10,7 @@ require('dotenv').config();
 const port = process.env.PORT || 5030;
 
 //middleware
-    app.use(cors({ credentials: true, origin: process.env.FRONT_END_URL }));
+    app.use(cors({ credentials: true, origin: process.env.FRONT_END_URI }));
     app.use(express.json());
 
 //connecting to database : MongoDB

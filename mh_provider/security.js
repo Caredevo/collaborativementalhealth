@@ -1,33 +1,13 @@
-require('dotenv').config();
 
-//RSA
-const crypto = require('crypto');
+//Encryption
 const CryptoJS = require("crypto-js");
-const fs = require('fs');
-const privateKey  = fs.readFileSync('./private.key', 'utf8');
 
 //backend sanitize
 const mongoSanitize = require('express-mongo-sanitize');
 
 function decryption(form) {
 
-    //RSA decryption with private key to get cipherkey
-    const rsaPrivateKey = {
-        key: privateKey,
-        passphrase: '',
-        padding: crypto.constants.RSA_PKCS1_PADDING,
-    };
-
-    const decryptedKey = crypto.privateDecrypt(
-        rsaPrivateKey,
-        Buffer.from(form.key, 'base64'),
-    );
-
-    var cipherKey = decryptedKey.toString('utf8');
-
-    //decryption of cipherdata using cipherkey 
-
-    var bytes = CryptoJS.AES.decrypt(form.data, cipherKey);
+    var bytes = CryptoJS.AES.decrypt(form.data, form.key);
     var decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
 
     var payload = decryptedData[0];
@@ -37,7 +17,7 @@ function decryption(form) {
         replaceWith: '_'
         });
 
-    return {data:payload, key:cipherKey};
+    return {data:payload, key:form.key};
 
 }
 

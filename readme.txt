@@ -1,3 +1,16 @@
+TO AWS : 
+backend
+- delete privatekey
+- update security.js
+- uninstall crypto.js
+- update FRONT_END_URI
+- update server.js FRONT_END_URL to URI
+- Update Docker compose with image name e.g image : pain:action
+- Update ECR
+
+Next : 
+- ECS and EC2 ALB
+
 To edit independently :
 1. Change port on each card to localhost of the backend
 2. on App.js : change the identity
