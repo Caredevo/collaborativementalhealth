@@ -1,5 +1,3 @@
-import publicKey from './public.key';
-import JSEncrypt from 'jsencrypt'
 import DOMPurify from 'dompurify';
 import CryptoJS from 'crypto-js';
 
@@ -26,13 +24,7 @@ export function encryption(form, randomKey) {
     //form encryption with secret key
     var cipherform = CryptoJS.AES.encrypt(JSON.stringify([form]), randomKey).toString();
 
-    //RSA encrpyption of the key
-    const jsEncrypt = new JSEncrypt();
-    jsEncrypt.setPublicKey(publicKey);
-
-    var key = jsEncrypt.encrypt(randomKey);
-
-    return {"data":cipherform, "key":key}
+    return {"data":cipherform, "key":randomKey}
 }
 
 export function decryption(data,key) {
