@@ -8,8 +8,22 @@ backend
 - Update Docker compose with image name e.g image : pain:action
 - Update ECR
 
-Next : 
-- ECS and EC2 ALB
+ECS :
+- create task definition with multiple containers and different ports
+EC2 : 
+- Create target group, with ip address and use the port of the backend
+- update listener with the path same like the path of backend, targeted to TargetGroup
+ECS :
+- Create service : Fargate, ...Service, numberoftask : 2, 
+   applicationloadbalancer, select containernameport
+- click on service, edit security group to TCP with container port address
+
+FRONTEND FOR AWS : 
+- webpack.prod.js and webpack.dev.js . delete devserver in webpack.prod.js
+- update json file start and build
+- update security file
+- npm uninstall jsencrypt
+- update bootstrap.js on view on production section
 
 To edit independently :
 1. Change port on each card to localhost of the backend
