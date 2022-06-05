@@ -1,7 +1,4 @@
 
-
-// to get patientId, Permission, provider name, practiceId, and external Id from redux state store
-
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Form, Field} from 'react-final-form';
@@ -9,8 +6,8 @@ import { CardFormHorizontalThird } from '../widgets/Cards';
 import {encryption, decryption, randomKey} from '../../Security';
 var cipherKey = randomKey();
 
-// const PORT = "http://localhost:3131/api/mentalhealth/profile";
-const PORT = "http://localhost:5030/mh_profile"
+// const PORT = "http://localhost:5100/api/mentalhealth/profile";
+const PORT = "https://api.caredevo.com/api/mentalhealth/profile";
 
 
 class MHProfile extends Component {

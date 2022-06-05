@@ -8,10 +8,9 @@ import {CardSmall} from '../widgets/Cards';
 import {encryption, decryption, randomKey} from '../../Security';
 var cipherKey = randomKey();
 
+// const PORT = "http://localhost:5100/api/mentalhealth/provider";
+const PORT = "https://api.caredevo.com/api/mentalhealth/provider";
 
-
-// const PORT = "http://localhost:3131/api/mentalhealth/provider";
-const PORT = "http://localhost:5040/mh_provider"
 
 
 class MHProvider extends React.Component {

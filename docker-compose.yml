@@ -1,47 +1,17 @@
 version: '3'
 services:
-  client:
+  # client:
+  #   build:
+  #     context: ./client
+  #   ports:
+  #     - 3000:3000
+  #   image: mentalhealth:client
+  backend:
     build:
-      context: ./client
+      context: ./backend
     ports:
-      - 3000:3000
-    image: mentalhealth:client
-  mh_action:
-    build:
-      context: ./mh_action
-    ports:
-      - 5010:5010
-    image: mentalhealth:action
-  mh_formulation:
-    build:
-      context: ./mh_formulation
-    ports:
-      - 5020:5020
-    image: mentalhealth:formulation
-  mh_profile:
-    build:
-      context: ./mh_profile
-    ports:
-      - 5030:5030
-    image: mentalhealth:profile
-  mh_provider:
-    build:
-      context: ./mh_provider
-    ports:
-      - 5040:5040
-    image: mentalhealth:provider
-  mh_review:
-    build:
-      context: ./mh_review
-    ports:
-      - 5050:5050
-    image: mentalhealth:review
-  mh_safety:
-    build:
-      context: ./mh_safety
-    ports:
-      - 5070:5070
-    image: mentalhealth:safety
+      - 5100:5100
+    image: mentalhealth
 networks:
   default:
     external: true

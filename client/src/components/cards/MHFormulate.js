@@ -9,8 +9,9 @@ import {encryption, decryption, randomKey} from '../../Security';
 var cipherKey = randomKey();
 
 
-// const PORT = "http://localhost:3131/api/mentalhealth/formulate";
-const PORT = "http://localhost:5020/mh_formulate"
+// const PORT = "http://localhost:5100/api/mentalhealth/formulate";
+const PORT = "https://api.caredevo.com/api/mentalhealth/formulate";
+
 
 
 class MHFormulate extends Component {

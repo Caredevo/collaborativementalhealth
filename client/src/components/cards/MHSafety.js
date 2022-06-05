@@ -7,10 +7,8 @@ import { CardForm } from '../widgets/Cards';
 import {encryption, decryption, randomKey} from '../../Security';
 var cipherKey = randomKey();
 
-
-
-// const PORT = "http://localhost:3131/api/mentalhealth/safety";
-const PORT = "http://localhost:5070/mh_safety"
+// const PORT = "http://localhost:5100/api/mentalhealth/safety";
+const PORT = "https://api.caredevo.com/api/mentalhealth/safety";
 
 
 class MHSafety extends Component {
