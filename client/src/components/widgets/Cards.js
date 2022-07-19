@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
 import Modal from './Modal';
 
+
+
+export class Card extends Component {
+
+    render() {
+
+        return (
+            <div className='smallcard'>
+                <div className='header'>{this.props.title}</div>
+                <div className='insidecard'>{this.props.children}</div>
+            </div>
+        )
+    }
+}
+
 export class CardFeatureA extends Component {
 
     constructor(props) {
@@ -13,7 +28,6 @@ export class CardFeatureA extends Component {
     };
 
     onDisplay() {
-        console.log(this.state.showModal); 
         return (
             <Modal
                 height='200px'

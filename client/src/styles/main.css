@@ -1136,7 +1136,7 @@ input {
   position: relative;
   width: 94%;
   padding: 5px;
-  color: #494949;
+  color: #393939;
   background: none;
   border: none;
   z-index: 2;
@@ -1169,7 +1169,7 @@ select {
   position: relative;
   width: 80%;
   padding: 3px;
-  color: #494949;
+  color: #393939;
   background: none;
   border: none;
   z-index: 2;
@@ -1210,7 +1210,7 @@ textarea {
   display: block;
   position: relative;
   width: 98%;
-  color: #494949;
+  color: #393939;
   background: none;
   border: none;
   line-height: 1.5;
@@ -1443,6 +1443,14 @@ table tr:hover {
   background-color: #d0dce6;
 }
 
+table tr:nth-child(even) {
+  background-color: #e4eaed;
+}
+
+table tr:nth-child(even):hover {
+  background-color: #bec4c7;
+}
+
 table td {
   white-space: pre-line;
 }
@@ -1482,6 +1490,14 @@ table th {
 
 .lmtable tr:hover {
   background-color: #d0dce6;
+}
+
+.lmtable tr:nth-child(even) {
+  background-color: #e4eaed;
+}
+
+.lmtable tr:nth-child(even):hover {
+  background-color: #bec4c7;
 }
 
 .lmtable td {
@@ -1535,6 +1551,45 @@ table th {
   position: sticky;
   top: 0;
   z-index: 1;
+}
+
+.slidecontainer {
+  width: 100px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100px;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  -webkit-transition: opacity .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #04AA6D;
+  cursor: pointer;
 }
 
 body {

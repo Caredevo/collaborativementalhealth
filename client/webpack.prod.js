@@ -6,7 +6,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: ["@babel/polyfill", "/src/index.js"],
-  output: { path: path.resolve(__dirname, "dist"), uniqueName:'mentalhealth_bundle', clean: true },
+  output: { path: path.resolve(__dirname, "dist"), 
+            uniqueName:'mentalhealth_bundle' },
   mode: 'production',
   module: {
     rules: [
@@ -23,6 +24,24 @@ module.exports = {
                 presets: ["@babel/preset-env", "@babel/preset-react"],
             },
         },
+      },
+      {
+        test: /\.(gif|png|jpe?g)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/images/'
+            }
+          }
+        ]
+      },
+      {
+        test:/\.html$/,
+        use: [
+          'html-loader'
+        ]
       },
       {
         test: /\.key$/i,
@@ -45,3 +64,4 @@ module.exports = {
     new MiniCssExtractPlugin(),
   ],
 };
+

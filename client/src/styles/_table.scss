@@ -21,6 +21,12 @@ table {
         }
     }
     
+    tr:nth-child(even) {
+        background-color: #e4eaed;
+        &:hover {
+            background-color: #bec4c7;
+        }
+    }
     
     td {
     white-space:pre-line;
@@ -59,6 +65,13 @@ table {
         background-color : rgb(255, 255, 255);
         &:hover {
         background-color : rgb(208, 220, 230);
+        }
+    }
+
+    tr:nth-child(even) {
+        background-color: #e4eaed;
+        &:hover {
+            background-color: #bec4c7;
         }
     }
     

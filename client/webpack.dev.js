@@ -11,9 +11,9 @@ module.exports = {
   output: { path: path.resolve(__dirname, "dist"), uniqueName:'mentalhealth_bundle', clean: true },
   devServer: {
     host: 'localhost',
+    port : 3000
     // host: '0.0.0.0',
     // port: 3010
-    port : 3000
   },
   mode: 'development',
   module: {
@@ -31,6 +31,24 @@ module.exports = {
                 presets: ["@babel/preset-env", "@babel/preset-react"],
             },
         },
+      },
+      {
+        test: /\.(gif|png|jpe?g)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/images/'
+            }
+          }
+        ]
+      },
+      {
+        test:/\.html$/,
+        use: [
+          'html-loader'
+        ]
       },
       {
         test: /\.key$/i,
