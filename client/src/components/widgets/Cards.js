@@ -266,6 +266,27 @@ export class CardLarge extends Component {
     }
 }
 
+
+export class CardStep extends Component {
+
+    formButton() {
+        if (this.props.buttons === null) {
+            return "inaction";
+        } else { 
+            return "action";
+        }  
+    }
+    render() {
+        return (
+            <div className='thirdhorizontalcard'>
+                <div className='header'>{this.props.title}</div>
+                <div className='insidecard'>{this.props.children}</div>
+                <div style={{marginLeft:'50%'}}>{this.props.buttons}</div>
+            </div>
+        )
+    }
+}
+
 export class CardFull extends Component {
     render() {
         return (

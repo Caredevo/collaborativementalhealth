@@ -13,6 +13,7 @@ const MHSafety = lazy(() => import('./components/cards/MHSafety'));
 const MHSubjective = lazy(() => import('./components/cards/MHSubjective'));
 const MHAnalysis = lazy(() => import('./components/cards/MHAnalysis'));
 const MHMedication = lazy(() => import('./components/cards/MHMedication'));
+const MHPlan = lazy(() => import('./components/cards/MHPlan'));
 
 export default function App(props) {
 
@@ -51,19 +52,18 @@ export default function App(props) {
  
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <div className='flex-container'>
-              <MHAnalysis identity={identity} /> 
-              <MHSubjective identity={identity}/>
-              <MHMedication identity={identity} /> 
-              <MHReview identity={identity} />
-              <MHAction identity={identity} />
-              <MHFormulate identity={identity}/>
-              <MHProvider identity={identity}/>
-              <MHSafety identity={identity}/>
-              <MHProfile identity={identity}/>
-             
-              
-          </div>
+        <div className='flex-container'>
+            <MHPlan identity={identity} /> 
+            <MHAnalysis identity={identity} /> 
+            <MHSubjective identity={identity}/>
+            <MHMedication identity={identity} /> 
+            <MHReview identity={identity} />
+            <MHAction identity={identity} />
+            <MHFormulate identity={identity}/>
+            <MHProvider identity={identity}/>
+            <MHSafety identity={identity}/>
+            <MHProfile identity={identity}/>
+        </div>
     </Suspense>  
   )
 }
