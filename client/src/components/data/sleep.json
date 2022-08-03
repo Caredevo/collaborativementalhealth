@@ -1,0 +1,9 @@
+[
+    { "status" : false, "label": "I have trouble falling asleep", "value" : "Trouble falling asleep"},
+    { "status" : false, "label": "I have interrupted sleep", "value" : "Can't maintain sleep"},
+    { "status" : false, "label": "I have nightmare", "value" : "Nightmare symptoms"},
+    { "status" : false, "label": "I snore at night", "value" : "Snoring"},
+    { "status" : false, "label": "I wake up unrefreshed", "value" : "Wake up unrefreshed"},
+    { "status" : false, "label": "I move around during sleep", "value" : "Restless sleep"},
+    { "status" : false, "label": "I have restless leg prior to sleep", "value" : "Restless legs"}
+]

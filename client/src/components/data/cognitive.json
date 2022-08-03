@@ -1,0 +1,5 @@
+[
+{ "status" : false, "label" : "I think negative thoughts", "value": "Automatic negative thoughts"},
+{ "status" : false, "label" : "I blame other people", "value": "Nihilistic thought"},
+{ "status": false, "label" :"I tend to think the worst can happen", "value" :"Catastrophizing"}
+]

@@ -418,6 +418,25 @@
   cursor: no-drop;
 }
 
+.capsule {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  background-color: #406f7e;
+  color: white;
+  border: none;
+  display: inline-block;
+  border-radius: 20px;
+  text-align: center;
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 20px;
+  white-space: nowrap;
+  overFlow: hidden;
+  min-width: 100px;
+  max-width: 250px;
+}
+
 .plaincard {
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

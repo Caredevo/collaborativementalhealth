@@ -96,4 +96,23 @@
     text-align: left;
 }
 
+.capsule {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    background-color:(rgb(64, 111, 126));
+    color: white;
+    border: none;
+    display:inline-block;
+    border-radius: 20px;
+    text-align: center;
+    word-break: break-all;
+    overflow:hidden;
+    text-overflow: ellipsis; 
+    padding: 20px;
+    white-space: nowrap;
+    overFlow: hidden;
+    min-width: 100px;
+    max-width: 250px;
+}
+
 

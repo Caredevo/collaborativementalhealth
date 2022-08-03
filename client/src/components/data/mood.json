@@ -1,0 +1,6 @@
+[
+    { "status" : false, "label": "I feel mostly depressed", "value" : "Depressive mood"},
+    { "status" : false, "label": "My mood is up and down", "value": "Mood instability"},
+    { "status" : false, "label": "I feel flat", "value": "Flat affect"},
+    { "status" : false, "label": "I feel anxious", "value": "Anxious mood"}
+]

@@ -1,0 +1,11 @@
+[
+    { "status" : false, "label": "Talking very fast, often with racing thoughts and rapid changes of topic", "value" : "Talkative"},
+    { "status" : false, "label": "I feel overjoyed", "value" : "Elevated mood"},
+    { "status" : false, "label": "I'm easily distracted, flit from task to task", "value" : "Easily distracted"},
+    { "status" : false, "label": "I'm highly irritable", "value" : "Irritability"},
+    { "status" : false, "label": "I'm abnormally upbeat, jumpy or wired", "value" : "Agitation"},
+    { "status" : false, "label": "I dont't feel the need to sleep", "value" : "Decreased need for sleep"},
+    { "status" : false, "label": "Exaggerated sense of well-being and self-confidence ", "value" : "Euphoria"},
+    { "status" : false, "label": "Engaging in risky behavior, like having impulsive sex, gambling with life savings, or going on big spending sprees", "value": "Risky behaviour"}
+]
+
