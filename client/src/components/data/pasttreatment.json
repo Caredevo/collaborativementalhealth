@@ -1,7 +1,9 @@
 [
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""}  
+    { "status" : false, "label": "I've seen counsellor", "value" : "Counselling"},
+    { "status" : false, "label": "I've seen psychologist", "value" : "Psychologist sessions"},
+    { "status" : false, "label": "I've seen Psychiatrist", "value" : "Psychiatrist consultations"},
+    { "status" : false, "label": "I had EMDR treatment", "value" : "EMDR"},
+    { "status" : false, "label": "I had Transcranial Magnetic Stimulation", "value" : "TMS"},
+    { "status" : false, "label": "I had hypnosis sessions", "value" : "Hypnosis"},
+    { "status" : false, "label": "I had Electro Convulsive Therapy", "value" : "ECT"}
 ]

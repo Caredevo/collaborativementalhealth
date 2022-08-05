@@ -1,7 +1,7 @@
 [
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""}  
+    { "status" : false, "label": "Paroxetine", "value" : "Paroxetine"},
+    { "status" : false, "label": "Fluoxetine", "value" : "Fluoxetine"},
+    { "status" : false, "label": "Sertraline", "value" : "Sertraline"},
+    { "status" : false, "label": "Citalopram", "value" : "Citalopram"},
+    { "status" : false, "label": "Mirtazipine", "value" : "Mirtazipine"} 
 ]

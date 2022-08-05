@@ -1,7 +1,7 @@
 [
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""}  
+    { "status" : false, "label": "I smoke cigarettes", "value" : "Cigarette smoker"},
+    { "status" : false, "label": "I drink a lot of alcohol", "value" : "Alcoholic"},
+    { "status" : false, "label": "I smoke cannabis", "value" : "THC use"},
+    { "status" : false, "label": "I take injection drugs", "value" : "Injecting drugs"},
+    { "status" : false, "label": "I take ice", "value" : "Amphetamine use"}
 ]

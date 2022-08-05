@@ -1,7 +1,10 @@
 [
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""}  
+    { "status" : false, "label": "I'm currently not working", "value" : "Currently unemployed"},
+    { "status" : false, "label": "I have not been able to secure employement througout my life", "value" : "Unemployable"},
+    { "status" : false, "label": "I change jobs often", "value" : "Changes between job"},
+    { "status" : false, "label": "I own my own business", "value" : "Own business"},
+    { "status" : false, "label": "I'm a full-time employee", "value" : "Full time employee"},
+    { "status" : false, "label": "I'm a part-time/casual employee", "value" : "Part-time/casual employee"},
+    { "status" : false, "label": "I'm fully retired", "value" : "Retired"},
+    { "status" : false, "label": "I'm on disability pension", "value" : "Disability pension"}
 ]

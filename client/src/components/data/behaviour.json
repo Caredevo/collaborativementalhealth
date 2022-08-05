@@ -4,5 +4,7 @@
     { "status" : false, "label": "I use substance more", "value": "Substance misuse"},
     { "status" : false, "label": "I stay in room all the time", "value" : "Social isolation"},
     { "status" : false, "label": "I go shopping", "value": "Shopping"},
-    { "status" : false, "label": "I exercise more", "value": "Exercise"}
+    { "status" : false, "label": "I exercise more", "value": "Exercise"},
+    { "status" : false, "label": "I pace around the room", "value": "Restless"},
+    { "status" : false, "label": "I cut my arm", "value": "Cutting arm"}
 ]

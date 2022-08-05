@@ -1,7 +1,15 @@
 [
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""}  
+    { "status" : false, "label": "Schizophrenia", "value" : "Schizophrenia"},
+    { "status" : false, "label": "Bipolar disorder", "value" : "Bipolar disorder"},
+    { "status" : false, "label": "Anxiety", "value" : "Anxiety"},
+    { "status" : false, "label": "Depression", "value" : "Depressio"},
+    { "status" : false, "label": "Autism", "value" : "Autism"},
+    { "status" : false, "label": "ADHD/ADD", "value" : "ADHD/ADD"},
+    { "status" : false, "label": "Learning difficulties", "value" : "Learning disorder"},
+    { "status" : false, "label": "Brain trauma/injury", "value" : "Traumatic brain injury"},
+    { "status" : false, "label": "PTSD", "value" : "PTSD"},
+    { "status" : false, "label": "Obsessive Compulsive Disorder", "value" : "Obssesive Compulsive Disorder"},
+    { "status" : false, "label": "Borderline Personality Disorder", "value" : "BPD"},
+    { "status" : false, "label": "Eating disorder", "value" : "Eating disorder"},
+    { "status" : false, "label": "I have been admitted in the psychiatric units", "value" : "Past Psychiatric admission"}
 ]

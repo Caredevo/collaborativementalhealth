@@ -408,7 +408,7 @@ class MHPlan extends React.Component {
                 content = this.state.adhd;
                 type = "capsule";
                 subtitle = "Behaviour symptoms - 2";
-                explanation = "Click any symptoms below that occured since at least 4 years old";
+                explanation = "Click any symptoms below that occured between 6 months old to less than 12 years old, in 2 different settings, eg. home and school/work";
                 break;
             case 11:
                 content = this.state.pasthistory;
@@ -502,33 +502,20 @@ class MHPlan extends React.Component {
         }
 
         return ( 
-            <div style={{display:'inline-flex', flexDirection:'row', padding:'10px'}}>
-                <div style={{width:'1200px'}}>
+            // <div style={{display:'inline-flex', flexDirection:'row', padding:'10px'}}>
+                <div>
                     <h2>{subtitle}</h2>{explanation}<br></br>
                     {this.symptoms(content, page, type)}
                     <p></p>
-                    <div style={{bottom:'80px', position:'fixed'}}>Page {page+1} of {maxpage+1}</div>
+                    <div style={{top:'-370px', marginRight: '20px', float:'right', position:'relative'}}>Page {page+1} of {maxpage+1}</div>
                 </div>
-                <div style={{borderColor:'black'}}>
-                  
-                        <b>Symptoms :</b><p></p>
-                        <i>Cognitive symptoms : </i>
-                        <ul style={{backgroundColor:'transparent', marginLeft:'20px', boxShadow:'none'}}>{renderList(this.state.cognitive)}</ul>
-                        <p></p>
-                        <i>Behaviour symptoms :</i>  
-                        <ul style={{backgroundColor:'transparent', marginLeft:'20px', boxShadow:'none'}}>{renderList(this.state.behaviour)}</ul>
-
-
-
-                  
-                </div>
-            </div>
+            // </div>
             )
     }
 
     symptoms = (content, page, type) => {
 
-        //if clickable capsule mode
+        //if clickable capsule modes
         switch (type) {
             case "capsule":
                 return content.map(item =>  {

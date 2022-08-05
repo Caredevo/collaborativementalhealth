@@ -1,7 +1,9 @@
 [
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""}  
+    { "status" : false, "label": "Schizophrenia", "value" : "Schizophrenia"},
+    { "status" : false, "label": "Bipolar disorder", "value" : "Bipolar disorder"},
+    { "status" : false, "label": "Anxiety", "value" : "Anxiety"},
+    { "status" : false, "label": "Depression", "value" : "Depressio"},
+    { "status" : false, "label": "Autism", "value" : "Autism"},
+    { "status" : false, "label": "ADHD/ADD", "value" : "ADHD/ADD"},
+    { "status" : false, "label": "Eating disorder", "value" : "Eating disorder"}
 ]

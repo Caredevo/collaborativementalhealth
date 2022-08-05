@@ -1,7 +1,8 @@
 [
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""}  
+    { "status" : false, "label": "I have no social support", "value" : "No social support"},
+    { "status" : false, "label": "I'm supported by NDIS provider", "value" : "NDIS provider"},
+    { "status" : false, "label": "I have common health support program by Aged Care service", "value" : "Common Health Support Program"},
+    { "status" : false, "label": "I have Aged Care Package", "value" : "Aged Care Package"},
+    { "status" : false, "label": "I have supportive family", "value" : "Supportive family"},
+    { "status" : false, "label": "I have supportive friends", "value" : "Supportive friends"}
 ]

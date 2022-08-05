@@ -1,7 +1,7 @@
 [
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""}  
+    { "status" : false, "label": "I live in my own house alone", "value" : "Own house, live alone"},
+    { "status" : false, "label": "I live in a rental house alone", "value" : "Rental house, live alone"},
+    { "status" : false, "label": "I live in DHS house", "value" : "DHS housing"},
+    { "status" : false, "label": "I live in retirement village", "value" : "Retirement Village"},
+    { "status" : false, "label": "I live in Residential Aged Care", "value" : "RACF"}  
 ]

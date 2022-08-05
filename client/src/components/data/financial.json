@@ -1,7 +1,8 @@
 [
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""}  
+    { "status" : false, "label": "I have regular income", "value" : "Steady income"},
+    { "status" : false, "label": "I'm on job-seeker", "value" : "Job Seeker"},
+    { "status" : false, "label": "I'm on disability pension", "value" : "Disability pension"},
+    { "status" : false, "label": "I'm on government pension", "value" : "Pensioner"},
+    { "status" : false, "label": "I'm on DVA", "value" : "DVA"},
+    { "status" : false, "label": "I'm self funded retiree", "value" : "Self-funded retiree"}
 ]

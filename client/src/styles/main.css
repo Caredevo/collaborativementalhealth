@@ -427,11 +427,11 @@
   display: inline-block;
   border-radius: 20px;
   text-align: center;
-  word-break: break-all;
-  overflow: hidden;
+  overflow-wrap: break-word;
   text-overflow: ellipsis;
   padding: 20px;
-  white-space: nowrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   overFlow: hidden;
   min-width: 100px;
   max-width: 250px;

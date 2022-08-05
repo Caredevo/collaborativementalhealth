@@ -1,5 +1,17 @@
 [
-{ "status" : false, "label" : "I think negative thoughts", "value": "Automatic negative thoughts"},
-{ "status" : false, "label" : "I blame other people", "value": "Nihilistic thought"},
-{ "status": false, "label" :"I tend to think the worst can happen", "value" :"Catastrophizing"}
+{ "status": false, "label" : "I always think negatively even in good situation", "value": "Filtering"},
+{ "status": false, "label" : "When I do something wrong, I think I'm a failure", "value": "All-or-none thinking"},
+{ "status": false, "label" : "I think that nothing ever goes my way", "value" :"Overgeneralization"},
+{ "status": false, "label" : "When someone compliments my look, I think they are just being nice", "value" :"Discounting the positive"},
+{ "status": false, "label" : "I often interpret an event or situation negatively without evidence supporting such a conclusion", "value" :"Jumping to conclusions"},
+{ "status": false, "label" : "I jump to the worst possible conclusion in every scenario", "value" :"Catastrophizing"},
+{ "status": false, "label" : "I feel responsible for events that, in reality, are completely or partially out of your control", "value" :"Personalization"},
+{ "status": false, "label" : "I feel I have no control at all over anything in my life ", "value" :"Control fallacies"},
+{ "status": false, "label" : "I believe I know what’s fair and what isn’t, and it upsets me when other people disagree with me", "value" :"Fallacy of fairness"},
+{ "status": false, "label" : "I feel that others have the power to affect my life, even more so than myself.", "value" :"Blaming"},
+{ "status": false, "label" : "I should be better in a lot of things", "value" :"Shoulds"},
+{ "status": false, "label" : "I believe future events depend on how I feel.", "value" :"Emotional reasoning"},
+{ "status": false, "label" : "I expect other people will change their ways to suit my expectations or needs, particularly when I pressure them enough.", "value" :"Fallacy of change"},
+{ "status": false, "label" : "I judge and then define myself or others based on an isolated event", "value" :"Global labeling"},
+{ "status": false, "label" : "I see my own opinions as facts of life. This is why I will go to great lengths to prove I'm right.", "value" :"Always being right"}
 ]

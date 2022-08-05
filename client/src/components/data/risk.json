@@ -1,7 +1,10 @@
 [
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""},
-    { "status" : false, "label": "", "value" : ""}  
+    { "status" : false, "label": "I occasionally have suicial thoughts, but no plan nor intent", "value" : "Occasional suicidal thoughts with no intent nor plan"},
+    { "status" : false, "label": "I have current suicidal thoughts, with intent and/or plan", "value" : "Current suicidal thoughts with intent and/or plan"},
+    { "status" : false, "label": "I often harm myself when I'm in distress (eg. cutting arm, overtaking drugs", "value" : "Self harm"},
+    { "status" : false, "label": "I have thoughts of harming other people", "value" : "Harmful thoughts toward others"},
+    { "status" : false, "label": "I have access to gun", "value" : "Access to gun"},
+    { "status" : false, "label": "I often drive intoxicated", "value" : "Driving intoxicated"},
+    { "status" : false, "label": "When I'm very distress, I drive faster", "value" : "Driving in distress"},
+    { "status" : false, "label": "I like to engage in extreme sport", "value" : "Life-threatening leisure activities"}
 ]
