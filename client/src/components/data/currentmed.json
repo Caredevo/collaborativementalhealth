@@ -1,7 +1,17 @@
 [
     { "status" : false, "label": "Paroxetine", "value" : "Paroxetine"},
-    { "status" : false, "label": "Fluoxetine", "value" : "Fluoxetine"},
-    { "status" : false, "label": "Sertraline", "value" : "Sertraline"},
+    { "status" : false, "label": "Fluoxetine(Prozac)", "value" : "Fluoxetine"},
+    { "status" : false, "label": "Sertraline(Cymbalta)", "value" : "Sertraline"},
     { "status" : false, "label": "Citalopram", "value" : "Citalopram"},
-    { "status" : false, "label": "Mirtazipine", "value" : "Mirtazipine"} 
+    { "status" : false, "label": "Mirtazipine", "value" : "Mirtazipine"},
+    { "status" : false, "label": "Venlafaxine(Efexor)", "value" : "Venlafaxine"},
+    { "status" : false, "label": "Quetiapine(Seroquel)", "value" : "Quetiapine"},
+    { "status" : false, "label": "Risperidone", "value" : "Risperidone"},
+    { "status" : false, "label": "Olanzepine", "value" : "Olanzepine"},
+    { "status" : false, "label": "Paliperidone injection", "value" : "Paliperidone injection"},
+    { "status" : false, "label": "Aripiprazole (Abilify) Injection", "value" : "Aripiprazole"},
+    { "status" : false, "label": "Diazepam", "value" : "Diazepam"},
+    { "status" : false, "label": "Zolpidem(Stilnox)", "value" : "Zolpidem"},
+    { "status" : false, "label": "Ritalin", "value" : "Ritalin"},
+    { "status" : false, "label": "Clonidine(Catapres)", "value" : "Clonidine"}
 ]

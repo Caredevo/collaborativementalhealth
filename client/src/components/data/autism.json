@@ -1,7 +1,7 @@
 [
-    { "status" : false, "label": "I'm having trouble with changes to my schedule, or changing from one activity to another", "value" : "Restricted symptoms"},
-    { "status" : false, "label": "I feel distressed by everyday sounds like hand dryers", "value" : "Hearing sensitivity"},
-    { "status" : false, "label": "I don't like the feel of certain clothes material", "value" : "Tactile sensitivity"},
-    { "status" : false, "label": "I don't like certain texture or taste of food in mouth", "value" : "Gustatory sensitivity"},
-    { "status" : false, "label": "I have limited facial expressions to communicate", "value" : "Limited facial expression"}  
+    { "status" : false, "label": "I'm having trouble with changes to my schedule, or changing from one activity to another", "value" : "restricted symptoms"},
+    { "status" : false, "label": "I feel distressed by everyday sounds like hand dryers", "value" : "hearing sensitivity"},
+    { "status" : false, "label": "I don't like the feel of certain clothes material", "value" : "tactile sensitivity"},
+    { "status" : false, "label": "I don't like certain texture or taste of food in mouth", "value" : "gustatory sensitivity"},
+    { "status" : false, "label": "I have limited facial expressions to communicate", "value" : "limited facial expression"}  
 ]

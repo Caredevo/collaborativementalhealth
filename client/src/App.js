@@ -54,7 +54,7 @@ export default function App(props) {
     <Suspense fallback={<div>Loading...</div>}>
         <div className='flex-container'>
             <MHPlan identity={identity} /> 
-            <MHAnalysis identity={identity} /> 
+            {/* <MHAnalysis identity={identity} /> 
             <MHSubjective identity={identity}/>
             <MHMedication identity={identity} /> 
             <MHReview identity={identity} />
@@ -62,7 +62,7 @@ export default function App(props) {
             <MHFormulate identity={identity}/>
             <MHProvider identity={identity}/>
             <MHSafety identity={identity}/>
-            <MHProfile identity={identity}/>
+            <MHProfile identity={identity}/> */}
         </div>
     </Suspense>  
   )

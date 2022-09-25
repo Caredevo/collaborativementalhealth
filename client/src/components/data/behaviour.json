@@ -1,10 +1,10 @@
 [
-    { "status" : false, "label": "I smoke more", "value":"Smoking more"},
-    { "status" : false, "label": "I drink alcohol more", "value": "Drinking alcohol more"},
-    { "status" : false, "label": "I use substance more", "value": "Substance misuse"},
-    { "status" : false, "label": "I stay in room all the time", "value" : "Social isolation"},
-    { "status" : false, "label": "I go shopping", "value": "Shopping"},
-    { "status" : false, "label": "I exercise more", "value": "Exercise"},
-    { "status" : false, "label": "I pace around the room", "value": "Restless"},
-    { "status" : false, "label": "I cut my arm", "value": "Cutting arm"}
+    { "status" : false, "label": "I smoke more", "value":"smoking more"},
+    { "status" : false, "label": "I drink alcohol more", "value": "drinking alcohol more"},
+    { "status" : false, "label": "I use substance more", "value": "substance misuse"},
+    { "status" : false, "label": "I stay in room all the time", "value" : "social isolation"},
+    { "status" : false, "label": "I go shopping", "value": "shopping"},
+    { "status" : false, "label": "I exercise more", "value": "exercise"},
+    { "status" : false, "label": "I pace around the room", "value": "restless"},
+    { "status" : false, "label": "I cut my arm", "value": "cutting arm"}
 ]

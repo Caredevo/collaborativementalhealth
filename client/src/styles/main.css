@@ -435,6 +435,8 @@
   overFlow: hidden;
   min-width: 100px;
   max-width: 250px;
+  -webkit-box-shadow: 2px 3px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 2px 3px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
 .plaincard {

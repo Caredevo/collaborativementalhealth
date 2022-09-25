@@ -1,7 +1,7 @@
 [
-    { "status" : false, "label": "I make myself sick because I feel uncomfortably full", "value" : "Make self sick when feeling full"},
-    { "status" : false, "label": "I worry I have lost control over how much I eat", "value" : "Worry of lost eating control"},
-    { "status" : false, "label": "I have lost more than 6kg in 3 months period", "value" : "Lost 6kg in 3 months"},
-    { "status" : false, "label": "I believe I'm fat when others say I'm too thin", "value" : "Believe being fat"},
-    { "status" : false, "label": "Food dominates my life", "value" : "Dominated by food"}  
+    { "status" : false, "label": "I make myself sick because I feel uncomfortably full", "value" : "make self sick when feeling full"},
+    { "status" : false, "label": "I worry I have lost control over how much I eat", "value" : "worry of lost eating control"},
+    { "status" : false, "label": "I have lost more than 6kg in 3 months period", "value" : "lost 6kg in 3 months"},
+    { "status" : false, "label": "I believe I'm fat when others say I'm too thin", "value" : "believe being fat"},
+    { "status" : false, "label": "Food dominates my life", "value" : "dominated by food"}  
 ]

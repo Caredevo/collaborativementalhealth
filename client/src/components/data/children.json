@@ -1,3 +1,4 @@
 [
-    { "status" : false, "label": "There's no children in the house", "value" : "Not living with children"},
-    { "status" : false, "label": "I have children below 16 years old living in the house", "value" : "Living with children below 16 yo"}]
+    { "status" : false, "label": "I have adolescent above 16 years old living in the house", "value" : "living with adolescent"},
+    { "status" : false, "label": "I have children below 16 years old living in the house", "value" : "living with children below 16 yo"}
+]

@@ -41,6 +41,7 @@ import livingData from "../data/living.json";
 import riskData from "../data/risk.json";
 import childrenData from "../data/children.json";
 import supportData from "../data/support.json";
+import sexualityData from "../data/sexuality.json";
 
 class MHPlan extends React.Component {
 
@@ -54,7 +55,7 @@ class MHPlan extends React.Component {
                 externalId: props.identity[4], 
                 config : props.identity[5],
                 page : 0,
-                maxpage: 22,
+                maxpage: 24,
                 cognitive : cognitiveData,
                 behaviour : behaviourData,
                 mood : moodData,
@@ -70,6 +71,7 @@ class MHPlan extends React.Component {
                 pasttreatment : pasttreatmentData,
                 currentmed : currentmedData,
                 pastmed : pastmedData,
+                sexuality : sexualityData,
                 familyhistory : familyhistoryData,
                 substance: substanceData,
                 employment : employmentData,
@@ -77,8 +79,7 @@ class MHPlan extends React.Component {
                 living: livingData,
                 risk: riskData,
                 children : childrenData,
-                support : supportData,
-                team : [{role:'Psychologist', name:'',time:''}, {role:'', name:'',time:''},{role:'', name:'',time:''},{role:'', name:'',time:''}]
+                support : supportData
             };
 
             this.toggle = this.toggle.bind(this);
@@ -199,6 +200,15 @@ class MHPlan extends React.Component {
                 this.setState({trauma: dataset});
                 break;
             case 8: 
+                dataset = this.state.sexuality;
+                dataset.map(obj => {
+                    if (obj.label === value.label) {
+                        obj.status = currentVal;
+                    }
+                });
+                this.setState({sexuality: dataset});
+                break;
+            case 9: 
                 dataset = this.state.learning;
                 dataset.map(obj => {
                     if (obj.label === value.label) {
@@ -207,7 +217,7 @@ class MHPlan extends React.Component {
                 });
                 this.setState({learning: dataset});
                 break;
-            case 9: 
+            case 10: 
                 dataset = this.state.autism;
                 dataset.map(obj => {
                     if (obj.label === value.label) {
@@ -216,7 +226,7 @@ class MHPlan extends React.Component {
                 });
                 this.setState({autism: dataset});
                 break;
-            case 10: 
+            case 11: 
                 dataset = this.state.adhd;
                 dataset.map(obj => {
                     if (obj.label === value.label) {
@@ -225,7 +235,7 @@ class MHPlan extends React.Component {
                 });
                 this.setState({adhd: dataset});
                 break;
-            case 11: 
+            case 12: 
                 dataset = this.state.pasthistory;
                 dataset.map(obj => {
                     if (obj.label === value.label) {
@@ -234,7 +244,7 @@ class MHPlan extends React.Component {
                 });
                 this.setState({pasthistory: dataset});
                 break;
-            case 12: 
+            case 13: 
                 dataset = this.state.pasttreatment;
                 dataset.map(obj => {
                     if (obj.label === value.label) {
@@ -243,7 +253,7 @@ class MHPlan extends React.Component {
                 });
                 this.setState({pasttreatment: dataset});
                 break;
-            case 13: 
+            case 14: 
                 dataset = this.state.currentmed;
                 dataset.map(obj => {
                     if (obj.label === value.label) {
@@ -252,7 +262,7 @@ class MHPlan extends React.Component {
                 });
                 this.setState({currentmed: dataset});
                 break;
-            case 14: 
+            case 15: 
                 dataset = this.state.pastmed;
                 dataset.map(obj => {
                     if (obj.label === value.label) {
@@ -261,7 +271,7 @@ class MHPlan extends React.Component {
                 });
                 this.setState({pastmed: dataset});
                 break;
-            case 15: 
+            case 16: 
                 dataset = this.state.familyhistory;
                 dataset.map(obj => {
                     if (obj.label === value.label) {
@@ -270,7 +280,7 @@ class MHPlan extends React.Component {
                 });
                 this.setState({familyhistory: dataset});
                 break;
-            case 16: 
+            case 17: 
                 dataset = this.state.substance;
                 dataset.map(obj => {
                     if (obj.label === value.label) {
@@ -279,7 +289,7 @@ class MHPlan extends React.Component {
                 });
                 this.setState({substance: dataset});
                 break;
-            case 17: 
+            case 18: 
                 dataset = this.state.employment;
                 dataset.map(obj => {
                     if (obj.label === value.label) {
@@ -288,7 +298,7 @@ class MHPlan extends React.Component {
                 });
                 this.setState({employment: dataset});
                 break;
-            case 18: 
+            case 19: 
                 dataset = this.state.financial;
                 dataset.map(obj => {
                     if (obj.label === value.label) {
@@ -297,7 +307,7 @@ class MHPlan extends React.Component {
                 });
                 this.setState({financial: dataset});
                 break;
-            case 19: 
+            case 20: 
                 dataset = this.state.living;
                 dataset.map(obj => {
                     if (obj.label === value.label) {
@@ -306,7 +316,7 @@ class MHPlan extends React.Component {
                 });
                 this.setState({living: dataset});
                 break;
-            case 20: 
+            case 21: 
                 dataset = this.state.risk;
                 dataset.map(obj => {
                     if (obj.label === value.label) {
@@ -315,7 +325,7 @@ class MHPlan extends React.Component {
                 });
                 this.setState({risk: dataset});
                 break;
-            case 21: 
+            case 22: 
                 dataset = this.state.children;
                 dataset.map(obj => {
                     if (obj.label === value.label) {
@@ -324,7 +334,7 @@ class MHPlan extends React.Component {
                 });
                 this.setState({children: dataset});
                 break;
-            case 22: 
+            case 23: 
                 dataset = this.state.support;
                 dataset.map(obj => {
                     if (obj.label === value.label) {
@@ -377,141 +387,168 @@ class MHPlan extends React.Component {
             case 5:
                 content = this.state.manic;
                 type = "capsule";
-                subtitle = "Manic/Hypomanic Symptoms";
+                subtitle = "Screening Symptoms - 1";
                 explanation = "Click any symptoms below that you experience for at least 4 days, present most of the day, nearly every day during the episode";
                 break;
             case 6:
                 content = this.state.eating;
                 type = "capsule";
-                subtitle = "Trouble with eating";
+                subtitle = "Screening Symptoms - 2";
                 explanation = "Click any that relates with your eating habit";
                 break;            
             case 7:
                 content = this.state.trauma;
                 type = "capsule";
-                subtitle = "Trauma";
+                subtitle = "Screening Symptoms - 3";
                 explanation = "Click any symptoms related with trauma";
                 break;
             case 8:
+                content = this.state.sexuality;
+                type = "capsule";
+                subtitle = "Sexuality";
+                explanation = "Click any symptoms related with your sexuality";
+                break;
+            case 9:
                 content = this.state.learning;
                 type = "capsule";
                 subtitle = "Learning Difficulties";
                 explanation = "Click any symptoms related with learning difficulties";
                 break;
-            case 9:
+            case 10:
                 content = this.state.autism;
                 type = "capsule";
                 subtitle = "Behaviour symptoms - 1";
                 explanation = "Click any symptoms below that occured since at least 4 years old";
                 break;
-            case 10:
+            case 11:
                 content = this.state.adhd;
                 type = "capsule";
                 subtitle = "Behaviour symptoms - 2";
                 explanation = "Click any symptoms below that occured between 6 months old to less than 12 years old, in 2 different settings, eg. home and school/work";
                 break;
-            case 11:
+            case 12:
                 content = this.state.pasthistory;
                 type = "capsule";
                 subtitle = "Past Mental Health History";
                 explanation = "Click any diagnosis that you were diagnosed with";
                 break;            
-            case 12:
+            case 13:
                 content = this.state.pasttreatment;
                 type = "capsule";
                 subtitle = "Past Treatment History";
                 explanation = "Click any treatment you have received in the past";
                 break;
-            case 13:
+            case 14:
                 content = this.state.currentmed;
                 type = "capsule";
                 subtitle = "Current Medication(s)";
                 explanation = "Click any medication that you are currently on";
                 break;
-            case 14:
+            case 15:
                 content = this.state.pastmed;
                 type = "capsule";
                 subtitle = "Past medication(s)";
                 explanation = "Click any medication you have tried in the past";
                 break;
-            case 15:
+            case 16:
                 content = this.state.familyhistory;
                 type = "capsule";
                 subtitle = "Family History of Mental Health";
                 explanation = "Click any history of mental health in the family";
                 break;
-            case 16:
+            case 17:
                 content = this.state.substance;
                 type = "capsule";
                 subtitle = "Substance Use History";
                 explanation = "Click any substance use below";
                 break;            
-            case 17:
+            case 18:
                 content = this.state.employment;
                 type = "capsule";
                 subtitle = "Employment History";
                 explanation = "Click below that's related with your current/past employment";
                 break;
-            case 18:
+            case 19:
                 content = this.state.financial;
                 type = "capsule";
                 subtitle = "Financials";
                 explanation = "Click below related your personal financial issue";
                 break;
-            case 19:
+            case 20:
                 content = this.state.living;
                 type = "capsule";
                 subtitle = "Living arrangement";
                 explanation = "Click below related with your living arrangement";
                 break;
-            case 20:
+            case 21:
                 content = this.state.risk;
                 type = "capsule";
                 subtitle = "Risks";
                 explanation = "Click below any symptoms related with risk";
                 break;
-            case 21:
+            case 22:
                 content = this.state.children;
                 type = "capsule";
                 subtitle = "Children";
                 explanation = "Click below any children at home";
                 break;
-            case 22:
+            case 23:
                 content = this.state.support;
                 type = "capsule";
                 subtitle = "Support";
                 explanation = "Click below related with your support";
                 break;
-
-        }
-
-        const renderList = (content) => {
-            var list = content;
-            var statement = [];
-            list.map(item => {
-                if (item.status === true) {
-                    statement.push(item.value)                 
-                }
-            })
-            
-            return statement.map(item => {
-                return (
-                    <li>{item}</li>
-                )
-            });
+            case 24:
+                type = "summary";
+                subtitle = "Mental Health Care Plan";
+                explanation = "Below is summary of your mental health care plan"
         }
 
         return ( 
-            // <div style={{display:'inline-flex', flexDirection:'row', padding:'10px'}}>
                 <div>
                     <h2>{subtitle}</h2>{explanation}<br></br>
                     {this.symptoms(content, page, type)}
                     <p></p>
-                    <div style={{top:'-370px', marginRight: '20px', float:'right', position:'relative'}}>Page {page+1} of {maxpage+1}</div>
+                    <div style={{bottom:'10px', position:'absolute'}}>Page {page+1} of {maxpage+1}</div>
                 </div>
-            // </div>
             )
     }
+
+    createSentence = (workingList) => {
+        if (workingList.length > 1) {
+            var lastIndex = workingList.length - 1;
+            var lastItem = workingList[lastIndex];
+            var lastEntry = lastItem.slice(0, -2) + ".";
+            var capitalized = workingList[0].charAt(0).toUpperCase()+ workingList[0].slice(1)
+            workingList.splice(0, 1, capitalized);
+            workingList.splice(lastIndex, 1, lastEntry);
+            return workingList;
+        } else if (workingList.length === 1) {
+            var item = workingList[0];
+            var capitalized = item.charAt(0).toUpperCase()+ item.slice(1);
+            var entry = capitalized.slice(0,-2) + ".";
+            return entry;
+        }
+        
+    }
+
+    buildingList = (list) => {
+        var buildList = list;
+        var tempList = [];
+        buildList.map(item => {
+            if (item.status === true) {
+                tempList.push(item.value + ", ");
+            } 
+        }); 
+        if (tempList.length === 0) {
+            tempList = "None"
+        } else {
+            tempList = this.createSentence(tempList);
+        };
+
+        return tempList;
+    }
+  
 
     symptoms = (content, page, type) => {
 
@@ -534,38 +571,148 @@ class MHPlan extends React.Component {
                     )
                 })
                 break;
-            case "form":
 
-                const team = () => {
-                    return content.map(item =>  {
-                        var name = item.name;
-                        var role = item.role;
-                        return (
-                            <tr>
-                            <td><input type='text' value={name} /></td>
-                            <td><input type='text' value={role} /></td>
-                            </tr>
-                        )
-                    })
-                }
-               
+            case "summary":
+
+                //cognitive list
+                var cognitiveList = this.buildingList(this.state.cognitive);
+                
+                //physical list
+                var physicalList = this.buildingList(this.state.physical);
+
+                //behaviour list
+                var behaviourList = this.buildingList(this.state.behaviour);
+
+                //mood list
+                var moodList =  this.buildingList(this.state.mood);
+
+                //sleep list
+                var sleepList = this.buildingList(this.state.sleep);
+
+                //manic list
+                var manicList = this.buildingList(this.state.manic);
+
+                //trauma list
+                var traumaList = this.buildingList(this.state.trauma);
+
+                //sexuality list
+                var sexualityList =  this.buildingList(this.state.sexuality);
+
+                //eating list
+                var eatingList =  this.buildingList(this.state.eating);
+
+                //learning list
+                var learningList = this.buildingList(this.state.learning);;
+   
+                //autism list
+                var autismList = this.buildingList(this.state.autism);
+
+                //adhd list
+                var adhdList = this.buildingList(this.state.adhd);
+
+                //pasthistory list
+                var pasthistoryList = this.buildingList(this.state.pasthistory);
+
+                //pasttreatment list
+                var pasttreatmentList = this.buildingList(this.state.pasttreatment);
+
+                //currentmed list
+                var currentmedList = this.buildingList(this.state.currentmed);
+        
+                //pastmed list
+                var pastmedList = this.buildingList(this.state.pastmed);
+
+                //familyhistory list
+                var familyhistoryList = this.buildingList(this.state.familyhistory);
+
+                //employment list
+                var employmentList = this.buildingList(this.state.employment);
+
+                //living list
+                var livingList = this.buildingList(this.state.living);
+
+                //financial list
+                var financialList = this.buildingList(this.state.financial);
+
+                //substance list
+                var substanceList = this.buildingList(this.state.substance);
+
+                //risk list
+                var riskList = this.buildingList(this.state.risk);
+
+                //children list
+                var childrenList = this.buildingList(this.state.children);
+
+                //support list
+                var supportList = this.buildingList(this.state.support);
+
                 return (
+                    
                     <div>
-                        <table className='lmtable'>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Role</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {team()}
-                        </tbody>
-
-                        </table>
+                    <br></br>
+                        ________________________________________________________________________________________
+                        <h3>Symptoms</h3>
+                        <div style={{marginLeft: "15px"}}>
+                            <div><b>Cognitive symptoms :</b><br></br><div style={{marginLeft:'20px'}}>{cognitiveList}</div></div>
+                            <div><b>Physical symptoms :</b><br></br>{physicalList}</div>
+                            <div><b>Behaviour symptoms :</b><br></br>{behaviourList}</div>
+                            <div><b>Mood symptoms :</b><br></br>{moodList}</div>
+                            <div><b>Sleep symptoms :</b><br></br>{sleepList}</div>
+                            <div><b>Manic/Hypomanic symptoms :</b><br></br>{manicList}</div>
+                            <div><b>Eating disorder symptoms :</b><br></br>{eatingList}</div>
+                            <div><b>Sexuality:</b><br></br>{sexualityList}</div>
+                        </div>
+                        <br></br>
+                        ________________________________________________________________________________________
+                        <h3>Childhood History</h3>
+                        <div style={{marginLeft: "15px"}}>
+                            <div><b>Learning difficulties:</b><br></br>{learningList}</div>
+                            <div><b>Autism symptoms:</b><br></br>{autismList}</div>
+                            <div><b>ADHD/ADD symptoms:</b><br></br>{adhdList}</div>
+                        </div>
+                        <br></br>
+                        ________________________________________________________________________________________
+                        <h3>Past Mental Health History</h3>
+                        <div style={{marginLeft: "15px"}}>
+                            <div><b>Past Diagnosis:</b><br></br> {pasthistoryList}</div>
+                            <div><b>Past Treatment:</b><br></br> {pasttreatmentList}</div>
+                        </div>
+                        <br></br>
+                        ________________________________________________________________________________________
+                        <h3>Medication History</h3>
+                        <div style={{marginLeft: "15px"}}>
+                            <div><b>Current Medications:</b><br></br>{currentmedList}</div>
+                            <div><b>Past Medications:</b><br></br>{pastmedList}</div>
+                        </div>
+                        <br></br>
+                        ________________________________________________________________________________________
+                        <h3>Family History</h3>
+                        <div style={{marginLeft: "15px"}}>
+                            <div><b>Family History:</b><br></br>{familyhistoryList}</div>
+                            <div><b>Children at home:</b><br></br>{childrenList}</div>
+                        </div>
+                        <br></br>
+                        ________________________________________________________________________________________
+                        <h3>Social History</h3>
+                        <div style={{marginLeft: "15px"}}>
+                            <div><b>Employment:</b><br></br>{employmentList}</div>
+                            <div><b>Substance Use:</b><br></br>{substanceList}</div>
+                            <div><b>Living arrangement:</b><br></br>{livingList}</div>
+                            <div><b>Financials:</b><br></br>{financialList}</div>
+                            <div><b>Social Supports:</b><br></br>{supportList}</div>
+                        </div>
+                        <br></br>
+                        ________________________________________________________________________________________
+                        <h3>Risk</h3>
+                        <div style={{marginLeft: "15px"}}>
+                            <div>{riskList}</div>
+                        </div>
+                        <br></br>
+                        ________________________________________________________________________________________
+                      
                     </div>
                 )
-                
+                break;
                
         } 
        

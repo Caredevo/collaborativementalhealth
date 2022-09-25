@@ -1,9 +1,9 @@
 [
-    { "status" : false, "label": "My muscle is tensed", "value" : "Muscle tension"},
-    { "status" : false, "label": "My heart is beating fast", "value": "Palpitation"},
-    { "status" : false, "label": "I have headache", "value": "Headache"},
-    { "status" : false, "label": "I have breathing difficulties", "value" : "Breathing difficulty"},
-    { "status" : false, "label": "I have blurry vision", "value": "Blurry vision"},
-    { "status" : false, "label": "I worsen any pain I have in the body", "value": "Worsening pain"},
-    { "status" : false, "label": "I develop stomach ache", "value": "Stomach ache"}
+    { "status" : false, "label": "My muscle is tensed", "value" : "muscle tension"},
+    { "status" : false, "label": "My heart is beating fast", "value": "palpitation"},
+    { "status" : false, "label": "I have headache", "value": "headache"},
+    { "status" : false, "label": "I have breathing difficulties", "value" : "breathing difficulty"},
+    { "status" : false, "label": "I have blurry vision", "value": "blurry vision"},
+    { "status" : false, "label": "I worsen any pain I have in the body", "value": "worsening pain"},
+    { "status" : false, "label": "I develop stomach ache", "value": "stomach ache"}
 ]

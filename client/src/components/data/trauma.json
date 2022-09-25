@@ -1,7 +1,7 @@
 [
-    { "status" : false, "label": "I have childhood trauma history", "value" : "Childhood trauma history"},
-    { "status" : false, "label": "I had history of domestic violence", "value" : "History of Domestic violence"},
-    { "status" : false, "label": "I had other trauma history", "value" : "Other trauma history"},
-    { "status" : false, "label": "I have nightmare symptoms", "value" : "Nightmare symptoms"},
-    { "status" : false, "label": "I have flashbacks when I'm triggered", "value" : "Flashbacks"}  
+    { "status" : false, "label": "I have childhood trauma history", "value" : "childhood trauma history"},
+    { "status" : false, "label": "I had history of domestic violence", "value" : "history of Domestic violence"},
+    { "status" : false, "label": "I had other trauma history", "value" : "other trauma history"},
+    { "status" : false, "label": "I have nightmare symptoms", "value" : "nightmare symptoms"},
+    { "status" : false, "label": "I have flashbacks when I'm triggered", "value" : "flashbacks"}  
 ]

@@ -1,0 +1,8 @@
+[
+    { "status" : false, "label": "I'm attracted to female", "value" : "attracted to female"},
+    { "status" : false, "label": "I'm attracted to male", "value" : "attracted to male"},
+    { "status" : false, "label": "I'm attracted both sexes", "value" : "attracted to both sexes"},
+    { "status" : false, "label": "I'm gender fluid", "value" : "gender fluid"},
+    { "status" : false, "label": "I have no sexual desire", "value" : "asexual"},
+    { "status" : false, "label": "I wish to change my sexuality to other gender", "value" : "gender dysphoria"}
+]

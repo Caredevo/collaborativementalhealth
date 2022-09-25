@@ -1,9 +1,9 @@
 [
-    { "status" : false, "label": "I have trouble with reading (dyslexia)", "value" : "Dyslexia"},
-    { "status" : false, "label": "I have trouble with numbers", "value" : "Dyscalculia"},
-    { "status" : false, "label": "I have trouble with writing", "value" : "Dysgraphia"},
-    { "status" : false, "label": "I have delayed motor skill development as compared to other kids on my age ", "value" : "Developmental Coordination Disorder"},
-    { "status" : false, "label": "I had persistent language problems", "value" : "Developmental Language Disorder"},
-    { "status" : false, "label": "I have short-term memory lapses", "value" : "Short-term memory lapses"},  
-    { "status" : false, "label": "I had a formal educational psychologist assessment", "value" : "Past formal education psychologist"}
+    { "status" : false, "label": "I have trouble with reading (dyslexia)", "value" : "dyslexia"},
+    { "status" : false, "label": "I have trouble with numbers", "value" : "dyscalculia"},
+    { "status" : false, "label": "I have trouble with writing", "value" : "dysgraphia"},
+    { "status" : false, "label": "I have delayed motor skill development as compared to other kids on my age ", "value" : "developmental Coordination Disorder"},
+    { "status" : false, "label": "I had persistent language problems", "value" : "developmental Language Disorder"},
+    { "status" : false, "label": "I have short-term memory lapses", "value" : "short-term memory lapses"},  
+    { "status" : false, "label": "I had a formal educational psychologist assessment", "value" : "past formal education psychologist"}
 ]

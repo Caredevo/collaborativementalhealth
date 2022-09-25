@@ -1,11 +1,11 @@
 [
-    { "status" : false, "label": "I'm often lack of attention to details", "value" : "Lack of attention to details"},
-    { "status" : false, "label": "I have difficulty maintaining attention", "value" : "Difficulty sustaining attention"},
-    { "status" : false, "label": "I can't follow instructions", "value" : "Does not follow through instruction"},
-    { "status" : false, "label": "I can't organize my tasks and/or activities", "value" : "Difficulty organizing tasks and activities"},
-    { "status" : false, "label": "I can't stay focus on one thing at a time", "value" : "Easily distracted"},
-    { "status" : false, "label": "I'm often fidgety", "value" : "Fidgetiness"},
-    { "status" : false, "label": "I can't sit still", "value" : "Leaves seat frequently"},
-    { "status" : false, "label": "I talk excessively", "value" : "Talk excessively"},
-    { "status" : false, "label": "I tend to act without thinking", "value" : "Tend to act without thinking"} 
+    { "status" : false, "label": "I'm often lack of attention to details", "value" : "lack of attention to details"},
+    { "status" : false, "label": "I have difficulty maintaining attention", "value" : "difficulty sustaining attention"},
+    { "status" : false, "label": "I can't follow instructions", "value" : "does not follow through instruction"},
+    { "status" : false, "label": "I can't organize my tasks and/or activities", "value" : "difficulty organizing tasks and activities"},
+    { "status" : false, "label": "I can't stay focus on one thing at a time", "value" : "easily distracted"},
+    { "status" : false, "label": "I'm often fidgety", "value" : "fidgetiness"},
+    { "status" : false, "label": "I can't sit still", "value" : "leaves seat frequently"},
+    { "status" : false, "label": "I talk excessively", "value" : "talk excessively"},
+    { "status" : false, "label": "I tend to act without thinking", "value" : "tend to act without thinking"} 
 ]
