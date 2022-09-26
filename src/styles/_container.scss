@@ -1,0 +1,52 @@
+
+// cards
+
+@mixin card() {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: left;
+    display : grid;
+    padding : 20px;
+    grid-gap : 3px;
+    height :450px;
+    background-color : white;
+    grid-template-rows :20px auto 20px;
+    z-index : 0;
+    border-radius : 5px;  
+    transition : 0.5s;
+    &:hover {
+        transform: scale(1.02);
+    }
+}
+
+.flex-container {
+    margin: 90px 10px 10px 170px ;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    grid-template-rows: repeat(4,500px) ;
+    grid-gap : 17px;
+}
+
+.thirdhorizontalcard {
+    @include card();
+    grid-column : span 3;
+}
+
+.header {
+    position : relative;
+    background-color : $primarycolor;
+    height : 18px;
+    padding : 10px;
+    color : white;
+    width : 200px;
+    margin-top: -34px;
+    font-size : 16px;
+    border-radius : 5px;
+    box-shadow: 2px 3px 12px 0 rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.19);
+}
+
+.insidecard {
+    text-align: left;
+    width : auto;
+    overflow-y : auto;
+    margin : 3px;
+}

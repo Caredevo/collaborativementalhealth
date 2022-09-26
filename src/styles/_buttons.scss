@@ -1,0 +1,65 @@
+
+@mixin button($color) {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    border: none;
+    padding: 8px;
+    color : white;
+    text-align: center;
+    text-decoration:white;
+    vertical-align: top;
+    box-shadow: 2px 3px 12px 0 rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.19);
+    border-radius : 5px;
+    background-color : $color;
+    cursor: pointer;
+    margin : 3px;
+    width : 70px;
+    &:active {
+    transform: translateY(2px);
+    }
+    &:hover {
+    opacity: 0.8;
+    }
+    &:disabled {
+    opacity : 0.3;
+    cursor: no-drop;
+    }
+}
+
+
+.btedit {
+    @include button( rgb(123, 119, 2));
+}
+
+.btnew {
+    @include button(rgb(2, 52, 90));
+}
+
+.btdel {
+    @include button(rgb(121, 23, 23));
+}
+
+.btsave {
+    @include button(rgb(81, 133, 55));
+}
+
+.capsule {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    background-color:(rgb(64, 111, 126));
+    color: white;
+    border: none;
+    display:inline-block;
+    border-radius: 20px;
+    text-align: left;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis; 
+    padding: 20px;
+    flex-wrap: wrap;
+    overFlow: hidden;
+    min-width: 100px;
+    max-width: 250px;
+    box-shadow: 2px 3px 12px 0 rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.19);
+}
+
+
